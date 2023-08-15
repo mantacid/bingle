@@ -27,14 +27,18 @@
     padding-left: 5px;
   }
 
-  background-color: $btn_bg;
+  .focused {
+    background-color: $tab_bg_focus
+  }
+
+  background-color: $tab_bg;
   border-radius: $rad_btn_border_large;
   padding: 2px ;
 }
 
 .tab:hover {
   @include trans-ease-anticipate;
-  background-color: $btn_bg_hov;
+  background-color: $tab_bg_hov;
   transition-property: background-color;
 }
 
@@ -46,7 +50,7 @@
 .tab:active {
   @include trans-instant;
   transition-property: unset;
-  background-color: $btn_bg_act;
+  background-color: $tab_bg_act;
 }
 
 .close:active {
