@@ -4,6 +4,10 @@
     background-color: unset;
   }
 
+  .icon {
+    background-position: left;
+  }
+
   .focused {
     background-color: $tab_bg_focus;
   }

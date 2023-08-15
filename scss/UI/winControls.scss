@@ -3,6 +3,15 @@
 /*todo: update import paths based on a config file*/
 @import "../themes/Default/main.scss"
 
+.winControl {
+  background-color: $btn_bg;
+}
+
+.winControl>.icon {
+  background-color: transparent;
+  margin: 2px;
+}
+
 .winControl:hover {
   background-color: $btn_bg_hov;
 }

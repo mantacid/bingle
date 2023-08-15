@@ -2,7 +2,7 @@
 (defvar snapshot "0x0")
 
 ;(include "./yuck/util/mouseLoc.yuck")
-(defwidget winControls [?window]
+(defwidget winControls [?window ?isMaximized] ;;isMaximized is a BOOLEAN
   (box :class "winControls"
        :orientation "h"
        :visible true
@@ -15,7 +15,9 @@
             ;:onclick ""
             ;:onrightclick ""
             ;:onmiddleclick ""
-      "v"
+      (icon :name "go-bottom-symbolic"
+            :class "winControl"
+            :halign "center")
     )
 
     (button :class "maximize winControl"
@@ -26,7 +28,11 @@
             ;:onrightclick ""
             ;:onmiddleclick ""
             ;:style "border-radius: 0;"
-      "m"
+      (icon :name "${isMaximized ? 'view-restore-symbolic' : 'view-fullscreen-symbolic'}"
+            :class "winControl"
+            :halign "center")
+
+      ;; NOTE: get this to change the :name based on window maximization
     )
 
     (button :class "close winControl h-last"
@@ -37,7 +43,9 @@
             ;:onrightclick ""
             ;:onmiddleclick ""
             ;:style "border-radius: 0 ${rad_btn_border} ${rad_btn_border} 0;"
-      "x"
+      (icon :name "process-stop-symbolic"
+            :class "winControl"
+            :halign "center")
     )
   )
 )
