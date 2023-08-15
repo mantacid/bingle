@@ -13,14 +13,14 @@
          :spacing "3"
       (box :class "spacer"
         (icon :name "utilities-terminal-symbolic"
-            :class "tab"
+            :class "tab {matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
             :halign "end"
             :hexpand false
         )
       )
 
       (label :class "tab"
-             :text {strlength(tabLabel)>12 ? "${search(tabLabel, '.{0,17}')[0]}..." : "${search(tabLabel, '.{0,16}')[0]"}
+             :text {strlength(tabLabel)>12 ? "${search(tabLabel, '.{0,17}')[0]}..." : "${search(tabLabel, '.{0,16}')[0]}"}
              :justify "left"
              :hexpand true
              :halign "start"

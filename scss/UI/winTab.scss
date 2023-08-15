@@ -4,6 +4,10 @@
     background-color: unset;
   }
 
+  .focused {
+    background-color: $tab_bg_focus;
+  }
+
   :first-child {
     background-color: transparent;
   }
@@ -25,10 +29,6 @@
 
   .spacer {
     padding-left: 5px;
-  }
-
-  .focused {
-    background-color: $tab_bg_focus
   }
 
   background-color: $tab_bg;
@@ -57,8 +57,4 @@
   @include trans-instant;
   background-color: $col_close_act;
   transition-property: background-color;
-}
-
-label {
-
 }
