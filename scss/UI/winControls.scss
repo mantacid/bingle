@@ -1,0 +1,32 @@
+/*IMPORT THIS FILE WHEN STYLING WINDOW CONTROLS.*/
+
+/*todo: update import paths based on a config file*/
+@import "../themes/Default/main.scss"
+
+.winControl:hover {
+  background-color: $btn_bg_hov;
+}
+
+.winControl:active {
+  background-color: $btn_bg_act;
+}
+
+.h-first {
+  @extend .winControl;
+  border-radius: $rad_btn_border_large $rad_btn_border_small $rad_btn_border_small $rad_btn_border_large;
+}
+
+.h-last {
+  @extend .winControl;
+  border-radius: $rad_btn_border_small $rad_btn_border_large $rad_btn_border_large $rad_btn_border_small;
+}
+
+.v-first {
+  @extend .winControl;
+  border-radius: $rad_btn_border_large $rad_btn_border_large $rad_btn_border_small $rad_btn_border_small;
+}
+
+.v-last {
+  @extend .winControl;
+  border-radius: $rad_btn_border_small $rad_btn_border_small $rad_btn_border_large $rad_btn_border_large;
+}

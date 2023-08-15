@@ -1,0 +1,6 @@
+(defwidget icon [name ?class]
+    (image
+        :class {"icon ${class}"}
+        :style "background-image: -gtk-icontheme('${name}');"
+    )
+)

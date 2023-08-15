@@ -1,0 +1,22 @@
+;;IMPORTANT: INCLUDE ANY EXTERNAL YUCK HERE!!!!
+
+(include "yuck/UI/context.yuck")
+(include "yuck/UI/desktop.yuck")
+(include "yuck/UI/winControls.yuck")
+(include "yuck/UI/winTab.yuck")
+(include "yuck/UI/icon.yuck")
+;;IMPORTANT: WHEN USING THE MENU-CONSTRUCTOR, YOU MUSS PASS A BOX CONTAINING THE YUCK IN MANUALLY. IT DOES NOT WORK ANY OTHER WAY!
+
+(defwindow tester :geometry (geometry :x "10"
+                                      :y "10"
+                                      :anchor "top left"
+                                      :width "200px"
+                                      :height "30px"
+                            )
+                  :wm-ignore true
+                  :stacking "fg"
+
+    (tab :tabLabel "test tab"
+         :tabIcon "${EWW_CONFIG_DIR}/scss/themes/Default/img/arrow"
+    )
+)

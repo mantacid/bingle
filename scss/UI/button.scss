@@ -1,0 +1,23 @@
+
+button {
+  border-radius: 3px;
+  color: $txt;
+  margin-left: 1px;
+  margin-right: 1px;
+  padding: 2px;
+}
+
+.close:hover {
+  @include trans-ease-anticipate;
+  background-color: unset;
+  background-color: $col_close_hov;
+  transition-property: background-color;
+}
+
+.close:active {
+  @include trans-instant;
+  background-color: unset;
+  background-color: $col_close_act;
+  transition-property: background-color;
+}
+

@@ -1,0 +1,44 @@
+(defvar rad_btn_border "7px")
+(defvar snapshot "0x0")
+
+;(include "./yuck/util/mouseLoc.yuck")
+(defwidget winControls [?window]
+  (box :class "winControls"
+       :orientation "h"
+       :visible true
+       :space-evenly true
+       :active true
+    (button :class "minimize winControl h-first"
+            :width "30%"
+            :height "7px"
+            ;:style "border-radius: ${rad_btn_border} 0 0 ${rad_btn_border};"
+            ;:onclick ""
+            ;:onrightclick ""
+            ;:onmiddleclick ""
+      "v"
+    )
+
+    (button :class "maximize winControl"
+            :width "30%"
+            :height "7px"
+
+            ;:onclick ""
+            ;:onrightclick ""
+            ;:onmiddleclick ""
+            ;:style "border-radius: 0;"
+      "m"
+    )
+
+    (button :class "close winControl h-last"
+            :width "30%"
+            :height "7px"
+
+            ;:onclick ""
+            ;:onrightclick ""
+            ;:onmiddleclick ""
+            ;:style "border-radius: 0 ${rad_btn_border} ${rad_btn_border} 0;"
+      "x"
+    )
+  )
+)
+

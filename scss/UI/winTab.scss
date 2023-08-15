@@ -1,0 +1,60 @@
+
+.tab {
+  box{
+    background-color: unset;
+  }
+
+  :first-child {
+    background-color: transparent;
+  }
+
+  :last-child {
+    background-color: transparent;
+  }
+
+  label {
+    color: $txt;
+    font-size: 14px;
+    background-color: transparent;
+    padding-left: 5px;
+  }
+
+  button {
+    background-color: transparent;
+  }
+
+  .spacer {
+    padding-left: 5px;
+  }
+
+  background-color: $btn_bg;
+  border-radius: $rad_btn_border_large;
+  padding: 2px ;
+}
+
+.tab:hover {
+  @include trans-ease-anticipate;
+  background-color: $btn_bg_hov;
+  transition-property: background-color;
+}
+
+/*redefine here because GTK-CSS doesn't like the !important tag apparently.*/
+.close:hover {
+  background-color: $col_close_hov;
+}
+
+.tab:active {
+  @include trans-instant;
+  transition-property: unset;
+  background-color: $btn_bg_act;
+}
+
+.close:active {
+  @include trans-instant;
+  background-color: $col_close_act;
+  transition-property: background-color;
+}
+
+label {
+
+}

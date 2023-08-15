@@ -1,0 +1,44 @@
+* {all: unset}
+
+@import "../themes/Default/main.scss"
+
+.context.menu {
+  background-color: $bg_main;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: calc(2px + $rad_btn_border_large);
+
+}
+
+.option {
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
+}
+
+.option:hover {
+  @include trans-ease-anticipate;
+  background-color :$btn_bg_hov_opaq;
+  /*specify the transition property here, as mixins will contain the other needed values for ease of connfiguration.*/
+  transition-property: background-color;
+}
+
+.option:active {
+  background-color: $btn_bg_act;
+}
+
+.option:first-child {
+  border-radius: $rad_btn_border_large $rad_btn_border_large $rad_btn_border_small $rad_btn_border_small;
+}
+
+.option:last-child {
+  border-radius: $rad_btn_border_small $rad_btn_border_small $rad_btn_border_large $rad_btn_border_large;
+}
+
+.option:only-child {
+  border-radius: $rad_btn_border_large;
+}

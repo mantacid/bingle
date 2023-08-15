@@ -1,0 +1,36 @@
+;;;; TRY TO MAKE IT 30PX TALL
+
+(defwidget tab [tabLabel ?PID ?appYuck tabIcon]
+    (eventbox :class "tab"
+              :hexpand true
+              :halign "fill"
+              ;:onhover ""
+              ;:onhoverlost ""
+    (box :space-evenly false
+         :spacing "3"
+      (box :class "spacer"
+        (icon :name "utilities-terminal-symbolic"
+            :class "tab"
+            :halign "end"
+            :hexpand false
+        )
+      )
+
+      (label :class "tab"
+             :text tabLabel
+             :justify "left"
+             :hexpand true
+             :halign "start"
+      )
+
+      (button :class "tab close"
+              :halign "end"
+              :hexpand "false"
+              :vexpand false
+              ;:onclick ""
+        (icon :name "process-stop-symbolic")
+      )
+    )
+  )
+)
+

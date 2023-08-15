@@ -1,0 +1,17 @@
+$btn_bg: rgba(205,197,212,0.1);
+$btn_bg_hov: rgba(205,197,212,0.25);
+$btn_bg_act: rgba(229,218,237,0.35);
+
+$bg_main: rgba(61,54,66,1);
+
+$btn_bg_opaq: mix(rgb(205,197,212),$bg_main,10%);
+$btn_bg_hov_opaq: mix(rgb(205,197,212),$bg_main,25%);
+$btn_bg_act_opaq: mix(rgb(229,218,237),$bg_main,35%);
+
+$txt: rgb(242,250,255);
+$txt_inactive: rgb(189,199,201);
+
+$col_close_hov: rgba(230,37,85,0.4);
+$col_close_act: rgba(255,0,64,0.7);
+
+

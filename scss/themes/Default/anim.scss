@@ -1,0 +1,9 @@
+@mixin trans-ease-anticipate {
+  transition-timing-function: cubic-bezier(0.52,0.13,0.42,1.0);
+  transition-duration: 0.2s;
+}
+
+@mixin trans-instant {
+  transition-timing-function: linear;
+  transition-duration: 0s;
+}
