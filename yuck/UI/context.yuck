@@ -38,7 +38,7 @@
   (eventbox :class "context"
             :active true
             :halign "start"
-            :onclick "${EWW_EXECUTABLE} close CONTEXT"
+            :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} close CONTEXT"
     (box :class "context menu"
          :orientation "v"
       (menu-constructor :menu-yuck "${menuData}")

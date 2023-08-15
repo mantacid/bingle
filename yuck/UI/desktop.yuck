@@ -7,7 +7,7 @@
         ;;--------EVENTS--------;;
         ;; use ${EWW_EXECUTABLE} to invoke eww, NOT ./eww
             ;:onclick ""
-            :onrightclick "${EWW_EXECUTABLE} update sanityCheck='WHAT THE HECK IS OATMEAL'" ;;use a shell script to send the right options to the context menu (creating a literal with the right arguments to send it the necessary menu options)
+            :onrightclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update sanityCheck='WHAT THE HECK IS OATMEAL'" ;;use a shell script to send the right options to the context menu (creating a literal with the right arguments to send it the necessary menu options)
             ;:onmiddleclick ""
             ;:onscroll ""
             ;:onhover ""

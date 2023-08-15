@@ -12,10 +12,10 @@
     (box :space-evenly false
          :spacing "3"
       (box :class "spacer"
-        (icon :name "utilities-terminal-symbolic"
-            :class "tab {matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
-            :halign "end"
-            :hexpand false
+        (icon :name tabIcon
+              :class "tab {matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
+              :halign "end"
+              :hexpand false
         )
       )
 

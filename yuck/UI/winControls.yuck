@@ -15,7 +15,7 @@
             ;:onclick ""
             ;:onrightclick ""
             ;:onmiddleclick ""
-      (icon :name "go-bottom-symbolic"
+      (icon :name "window-minimize-symbolic"
             :class "winControl"
             :halign "center")
     )
@@ -28,7 +28,7 @@
             ;:onrightclick ""
             ;:onmiddleclick ""
             ;:style "border-radius: 0;"
-      (icon :name "${isMaximized ? 'view-restore-symbolic' : 'view-fullscreen-symbolic'}"
+      (icon :name "${isMaximized ? 'window-restore-symbolic' : 'window-maximize-symbolic'}"
             :class "winControl"
             :halign "center")
 
@@ -43,7 +43,7 @@
             ;:onrightclick ""
             ;:onmiddleclick ""
             ;:style "border-radius: 0 ${rad_btn_border} ${rad_btn_border} 0;"
-      (icon :name "process-stop-symbolic"
+      (icon :name "window-close-symbolic"
             :class "winControl"
             :halign "center")
     )
