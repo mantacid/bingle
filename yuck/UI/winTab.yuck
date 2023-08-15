@@ -1,9 +1,12 @@
 ;;;; TRY TO MAKE IT 30PX TALL
+;; upon creating a tab, it is assigned a UUID from the output of the command `uuidgen`
+;;theUUID of the most recently focused tab is written to a temp file, which a conditional compares itself against to allow for tab focus classes
 
-(defwidget tab [tabLabel ?PID ?appYuck tabIcon]
-    (eventbox :class "tab"
+(defwidget tab [tabLabel ?PID ?appYuck tabIcon ?tabUUID]
+    (eventbox :class "tab {matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
               :hexpand true
               :halign "fill"
+              :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update LAST_FOCUSED_TAB_UUID='${tabUUID}'"
               ;:onhover ""
               ;:onhoverlost ""
     (box :space-evenly false
@@ -17,7 +20,7 @@
       )
 
       (label :class "tab"
-             :text tabLabel
+             :text {strlength(tabLabel)>12 ? "${search(tabLabel, '.{0,17}')[0]}..." : "${search(tabLabel, '.{0,16}')[0]"}
              :justify "left"
              :hexpand true
              :halign "start"

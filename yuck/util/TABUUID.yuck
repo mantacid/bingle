@@ -1,0 +1,2 @@
+(defvar LAST_FOCUSED_TAB_UUID "05ba6af0-c358-4024-81e8-49aae8394753")
+;; use random generation for this so that you can't infer user activity if you know a hashing algorithm
