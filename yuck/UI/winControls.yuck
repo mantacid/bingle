@@ -2,7 +2,7 @@
 (defvar snapshot "0x0")
 
 ;(include "./yuck/util/mouseLoc.yuck")
-(defwidget winControls [?window ?isMaximized] ;;isMaximized is a BOOLEAN
+(defwidget winControls [?window isMaximized] ;;isMaximized is a BOOLEAN
   (box :class "winControls"
        :orientation "h"
        :visible true
@@ -11,7 +11,7 @@
     (button :class "minimize winControl h-first"
             :width "30%"
             :height "7px"
-            ;:style "border-radius: ${rad_btn_border} 0 0 ${rad_btn_border};"
+
             ;:onclick ""
             ;:onrightclick ""
             ;:onmiddleclick ""
@@ -27,7 +27,6 @@
             ;:onclick ""
             ;:onrightclick ""
             ;:onmiddleclick ""
-            ;:style "border-radius: 0;"
       (icon :name "${isMaximized ? 'window-restore-symbolic' : 'window-maximize-symbolic'}"
             :class "winControl"
             :halign "center")
@@ -42,7 +41,7 @@
             ;:onclick ""
             ;:onrightclick ""
             ;:onmiddleclick ""
-            ;:style "border-radius: 0 ${rad_btn_border} ${rad_btn_border} 0;"
+
       (icon :name "window-close-symbolic"
             :class "winControl"
             :halign "center")

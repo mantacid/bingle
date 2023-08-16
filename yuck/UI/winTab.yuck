@@ -2,6 +2,21 @@
 ;; upon creating a tab, it is assigned a UUID from the output of the command `uuidgen`
 ;;theUUID of the most recently focused tab is written to a temp file, which a conditional compares itself against to allow for tab focus classes
 
+(defwidget newTab []
+  (button :class "new tab"
+          :width "20px"
+          :height "20px"
+          ;:onclick ""
+          ;:onnrightclick ""
+          :hexpand false
+          :halign "start"
+    (icon :name "value-increase-symbolic"
+          :halign "start"
+          :hexpand false
+    )
+  )
+)
+
 (defwidget tab [tabLabel ?PID ?appYuck tabIcon ?tabUUID]
     (eventbox :class "tab {matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
               :hexpand true
@@ -10,7 +25,8 @@
               ;:onhover ""
               ;:onhoverlost ""
     (box :space-evenly false
-         :spacing "3"
+         :spacing "3px"
+         :height "20px"
       (box :class "spacer"
         (icon :name tabIcon
               :class "tab {matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"

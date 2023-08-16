@@ -1,11 +1,10 @@
-
-
 ;;;;; define the menu constructor ;;;;;
 
 (defwidget menu-constructor [menu-yuck]
   (literal :content menu-yuck)
 )
 
+;;IMPORTANT: WHEN USING THE MENU-CONSTRUCTOR, YOU MUSS PASS A BOX CONTAINING THE YUCK IN MANUALLY. IT DOES NOT WORK ANY OTHER WAY!
 
 ;;;;; define a typical context menu item ;;;;;
 

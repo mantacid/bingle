@@ -1,6 +1,3 @@
-## TO VOID:
-add an image wallpaper.png to the root of the repo, as ive put it in the .gitignore file so that we arent uploading images. you'll need gtk3 installed (should be a dependency of eww.)
-
 # BINGLE
 BINGLE (Badly INtegrated Graphical Linux Environment) is less of a legitimate desktop environment and more of an experiment. It is written to utilize [Elkowar's Wacky Widgets](https://github.com/elkowar/eww), and is integrated with the system through a bunch of janky scripts.
 

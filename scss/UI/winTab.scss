@@ -8,10 +8,6 @@
     background-position: left;
   }
 
-  .focused {
-    background-color: $tab_bg_focus;
-  }
-
   :first-child {
     background-color: transparent;
   }
@@ -36,8 +32,9 @@
   }
 
   background-color: $tab_bg;
-  border-radius: $rad_btn_border_large;
-  padding: 2px ;
+  border-radius: $rad_btn_border_small;
+  padding: 3px ;
+  margin-right: 2px;
 }
 
 .tab:hover {
@@ -62,3 +59,11 @@
   background-color: $col_close_act;
   transition-property: background-color;
 }
+
+.new.tab {
+  margin-left: 2px;
+}
+
+.focused {
+    background-color: $tab_bg_focus;
+  }

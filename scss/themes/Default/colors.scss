@@ -1,5 +1,17 @@
 $bg_menu: rgba(61,54,66,1);
-$bg_main: rgba(51,44,56,1);
+$bg_main: rgba(49,47,55,1);
+$bg_main_light: rgba(64,55,69,1);
+$bg_main_dark: rgba(46,44,53,1);
+
+$shade_intensity: 0%;
+$shade_contrast_multiplier: 5.0;
+$col_light: rgba(246,196,255,1);
+$col_shade:rgba(53,25,58);
+
+$bg_main_border_highlight_primary: mix($col_light, $bg_main, calc($shade_contrast_multiplier * $shade_intensity));
+$bg_main_border_shadow_primary: mix($col_shade, $bg_main, calc($shade_contrast_multiplier * $shade_intensity));
+$bg_main_border_highlight_secondary: mix($col_light, $bg_main, $shade_intensity);
+$bg_main_border_shadow_secondary: mix($col_shade, $bg_main, $shade_intensity);
 
 $btn_bg: rgba(205,197,212,0.1);
 $btn_bg_hov: rgba(205,197,212,0.25);
@@ -13,7 +25,7 @@ $txt: rgb(242,250,255);
 $txt_inactive: rgb(189,199,201);
 
 $col_close_hov: rgba(230,37,85,0.4);
-$col_close_act: rgba(255,0,64,0.7);
+$col_close_act: rgba(255,0,64,1.0);
 
 $tab_bg: rgba(205,197,212,0.1);
 $tab_bg_hov: rgba(205,197,212,0.25);
