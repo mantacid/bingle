@@ -1,9 +1,11 @@
-.inj/ contains yuck that will be updated by various scripts, allowing arguments to be passed to widgets from a command line.
+IMPORTANT GENIUS SOLUTION FOR TAB TRANSFER SCHEME THAT YOU CANNOT FORGET UNDER ANY CIRCUMSTANCES!!!!!!!!
 
-This is accomplished by updating the yuck variables with the outputs of various scripts.
+every window will come with a file that is named after its own winUUID. this file contains all of the tabs in that window, keyed with their tabUUID. Each entry is a json structure, so that it can contain both the tab data and the associated content, and still integrate well into eww itself.
 
-EXAMPLE: to pass the relevant menu options to a newly-spawned instance of a context-menu, we can use a script to parse into yuck the options provided by the right click target, from which the widget will include the values.
+tab when dragged will pass strign of its original winUUID and its tabUUID.
 
-Alternatively, one could update some json and pass it through that way.
+tabzone :ondropped event will call a script &pass the two UUIDs as two arguments.
 
-This is a temporary hack, and hopefully a more tidy fix can be found.
+the script will search in the file ${winUUID} for the string that contains the ${tabUUID} and moves the whole yuck entry from the old window file to its OWN file!
+
+since each window renders tabs from their own file, this solves both the dynamic content issue AND the data transfer issue.

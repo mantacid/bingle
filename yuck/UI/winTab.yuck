@@ -17,13 +17,16 @@
   )
 )
 
-(defwidget tab [tabLabel ?PID ?appYuck tabIcon ?tabUUID]
-    (eventbox :class "tab {matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
+(defwidget tab [tabLabel ?PID ?appSessionYuck tabIcon ?tabUUID]
+    (eventbox :class "tab ${matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
               :hexpand true
               :halign "fill"
-              :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update LAST_FOCUSED_TAB_UUID='${tabUUID}'"
+              :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update LAST_FOCUSED_TAB_UUID='${tabUUID}'" ;;also execute updating the parent window content to the value of the
               ;:onhover ""
               ;:onhoverlost ""
+
+              ;:dragtype "text"
+              ;:dragvalue "$tab.{tabUUID}.content=${appSessionYuck}"
     (box :space-evenly false
          :spacing "3px"
          :height "20px"
