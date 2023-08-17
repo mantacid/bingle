@@ -3,13 +3,11 @@
 ;; INCLUDE THE UUID OF THE LAST FOCUSED TAB
 (include "yuck/util/TABUUID.yuck")
 
+;; INCLUDE YUCK THAT IMPORTS DYNAMIC WINDOW DEFINITIONS
+(include "tmp/schmoove-pointers.yuck")
+
 ;; INCLUDE YUCK THAT DEFINES BASIC UI ELEMENTS
-(include "yuck/UI/context.yuck")
-(include "yuck/UI/desktop.yuck")
-(include "yuck/UI/winControls.yuck")
-(include "yuck/UI/winTab.yuck")
-(include "yuck/UI/icon.yuck")
-(include "yuck/UI/bingle-window.yuck")
+(include "yuck/UI/main.yuck")
 
 (defwindow tester :geometry (geometry :x "10"
                                       :y "10"
