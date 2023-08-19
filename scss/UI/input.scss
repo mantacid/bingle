@@ -1,0 +1,13 @@
+.search {
+  :focused {
+    border: 1px solid $col_acc;
+  }
+
+  .search-icon {
+    background-color: $bg_main;
+  }
+  background: $bg_main_dark;
+  border-radius: $rad_btn_border_large;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
