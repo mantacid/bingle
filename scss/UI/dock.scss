@@ -1,0 +1,21 @@
+*{all: unset}
+
+.dock-item {
+  .icon {
+    margin: 3px;
+  }
+  background-color: transparent;
+  padding: 0px;
+}
+
+.icon.search {
+
+  border-radius: $rad_btn_border_large 0 0 $rad_btn_border_large;
+}
+
+.toggled {
+}
+
+.search:focused {
+  border: none;
+}

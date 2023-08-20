@@ -1,5 +1,6 @@
 ;;IMPORTANT: INCLUDE ANY EXTERNAL YUCK HERE!!!!
-
+(defvar isSearchExpanded false)
+(defvar isStartMenuShown false)
 ;; INCLUDE THE UUID OF THE LAST FOCUSED TAB
 (include "yuck/util/TABUUID.yuck")
 

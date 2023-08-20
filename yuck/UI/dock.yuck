@@ -1,0 +1,42 @@
+(defwidget btnSearch [showState]
+  (box :class "dock-item search {showState ? 'search-toggled' : 'dormant'}"
+       :orientation "h"
+       :space-evenly false
+       :active true
+       :valign "fill"
+       :halign "start"
+    (button :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${showState}=true"
+              :width: "20px"
+              :hexpand false
+              :class "search {showState ? 'toggled' : 'dormant'}"
+              :active true
+      (icon :name "system-search-symbolic"
+            :class "search dock {showState ? 'toggled' : 'dormant'}"
+      )
+    )
+    (revealer :transition "slideright"
+              :duration "50ms"
+              :reveal showState
+              :width: "100px"
+      (input :class "search"
+             :value ""
+      )
+    )
+  )
+)
+
+
+(defwindow DOCK :windowtype "dock"
+                :wm-ignore false
+                :focusable true
+                :reserve (struts :distance "10px" :side "top")
+                :geometry (geometry :width "99%"
+                                    :height "30px"
+                                    :x "0.5%"
+                                    :y "-10px"
+                                    :anchor "bottom left"
+                          )
+  (box :class "dock"
+    (btnSearch :showState isSearchExpanded)
+  )
+)
