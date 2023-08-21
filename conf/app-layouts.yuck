@@ -1,0 +1,23 @@
+;;;;; APP LAYOUTS ;;;;;
+;; define windnow layouts and tiling using yuck
+
+;; EXAMPLE, USE AN OVERLAY ELEMENT TO PUT THIS ON TOP OF THE DESKTOP
+(defwidget winLayout_vsplit []
+  (box :orientation "h"
+       :space-evenly false
+       :width "100%"
+       :height "100%"
+       :style "all: unset; padding: ${WINDOW_GAPS}"
+    (box :orientation "v"
+      (box :vexpand true
+        (children)
+      )
+      (box :vexpand true
+        (children)
+      )
+    )
+    (box :width "50%"
+      (children)
+    )
+  )
+)

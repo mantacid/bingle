@@ -1,2 +1,5 @@
 ;; Each of these include statements will have its own settings page.
+(include "conf/app-layouts.yuck")
+(include "conf/bingleWindow.yuck")
 (include "conf/desktop.yuck")
+

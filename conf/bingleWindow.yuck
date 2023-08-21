@@ -1,0 +1,6 @@
+;;;;; WINDOW CONFIGS ;;;;;
+
+;(include "conf/app-layouts.conf")
+
+;; define window-related variables here.
+(defvar WINDOW_GAPS '10px')
