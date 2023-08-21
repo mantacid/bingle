@@ -1,6 +1,6 @@
 (defwidget winFrame [?tab-yuck ?window-classes ?winUUID ?tabJSON] ;;tabJSON is variable defined at window spawning that points to the window json.
   (box :width "100%"
-       :height "24px"
+       :height WIN_FRAME_H
        :class "frame ${window-classes}"
        :hexpand true
        :vexpand false

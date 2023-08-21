@@ -4,3 +4,6 @@
 
 ;; define window-related variables here.
 (defvar WINDOW_GAPS '10px')
+
+;; window Frame Height, does not include padding defined in styles. Also influences tab height.
+(defvar WIN_FRAME_H "20px")

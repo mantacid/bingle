@@ -4,8 +4,8 @@
 
 (defwidget newTab []
   (button :class "new tab"
-          :width "20px"
-          :height "20px"
+          :width WIN_FRAME_H
+          :height WIN_FRAME_H
           ;:onclick ""
           ;:onnrightclick ""
           :hexpand false
@@ -29,7 +29,7 @@
               ;:dragvalue "{tab: '${tabUUID}', win: '${winUUID}'}" ;; window uses these to find the json for the tab and add it to the current window
     (box :space-evenly false
          :spacing "3px"
-         :height "20px"
+         :height WIN_FRAME_H
       (box :class "spacer"
         (icon :name tabIcon
               :class "tab {matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
