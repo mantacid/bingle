@@ -22,10 +22,11 @@
                   :wm-ignore true
                   :stacking "fg"
 
-    (tab :tabLabel "Test Label"
-         :tabIcon "utilities-terminal-symbolic"
-         :tabUUID "efb0bd7b-0cc8-4d4e-b980-546aefc2f0b3"
-    )
+    ;(tab :tabLabel "Test Label"
+    ;     :tabIcon "utilities-terminal-symbolic"
+    ;     :tabUUID "efb0bd7b-0cc8-4d4e-b980-546aefc2f0b3"
+    ;)
+     (icon :name "window-close-symbolic" :class "accent")
 
     ;(winControls :isMaximized false)
 )

@@ -50,7 +50,7 @@
               :hexpand "false"
               :vexpand false
               ;:onclick ""
-        (icon :name "process-stop-symbolic"
+        (icon :name "window-close-symbolic"
               :class "close"
         )
       )
