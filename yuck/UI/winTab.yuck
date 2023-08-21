@@ -17,7 +17,7 @@
   )
 )
 
-(defwidget tab [tabLabel ?PID ?appSessionYuck tabIcon ?tabUUID]
+(defwidget tab [tabLabel ?PID ?appSessionYuck tabIcon ?tabUUID ?winUUID]
     (eventbox :class "tab ${matches(tabUUID, LAST_FOCUSED_TAB_UUID) ? 'focused' : ''}"
               :hexpand true
               :halign "fill"
@@ -26,7 +26,7 @@
               ;:onhoverlost ""
 
               ;:dragtype "text"
-              ;:dragvalue "$tab.{tabUUID}.content=${appSessionYuck}"
+              ;:dragvalue "{tab: '${tabUUID}', win: '${winUUID}'}" ;; window uses these to find the json for the tab and add it to the current window
     (box :space-evenly false
          :spacing "3px"
          :height "20px"

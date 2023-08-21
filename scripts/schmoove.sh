@@ -26,7 +26,7 @@ get-temp-dir() {
 
 tab-add() {
   ## define local variables
-  baseJSON="TABUUID: {name: 'LABEL', icon: 'ICON', content: 'CONTENT', display 'DISPLAY'},"
+  baseJSON="TABUUID: {name: 'LABEL', icon: 'ICON', content: 'CONTENT', winUUID: 'WINUUID'},"
   tabUUID=$(uuidgen)
 
   ## define names for arguments
@@ -37,7 +37,9 @@ tab-add() {
 
 
   ## generate the tab json. This will be inserted into the window's tab list. tabs appear in an order defined by their index in the list.
-  tabJSON=$(echo $(echo $(echo $(echo $baseJSON | sed "s/TABUUID/$tabUUID/g") | sed "s/LABEL/$tabLabl/g") | sed "s/ICON/$tabIcon/g") | sed "s/CONTENT/$appYuck/g")
+  tabJSON=$(echo $(echo $(echo $(echo $(echo $baseJSON | sed "s/TABUUID/$tabUUID/g") | sed "s/LABEL/$tabLabl/g") | sed "s/ICON/$tabIcon/g") | sed "s/CONTENT/$appYuck/g") | sed "s/WINUUID/$winUUID/g")
+
+  ## find the window JSON file, use python implementation to populate the tab array.
 }
 
 #######################################################################################
@@ -61,7 +63,10 @@ window-open() {
   ## winDir points to the directory associated with this window.
   winDir="$(get_temp_dir)/$winUUID"
   ## winBASE contains a template for window definitions, which in turn includes a polling/listening variable to query the tablist.
-  winBASE="(defpoll ${winUUID}_tabs :initial '' `cat $(get_temp_dir)/$winUUID/tabs.json`)(defwindow WINDOW :geometry (geometry :anchor 'top left') :wm-ingore false :stacking 'bg' :windowtype 'normal' (winBingle :content-yuck '(context)' :winUUID 'WINDOW' :winX '$winX' :winY '$winY' :winW '$winW' winH '$winH'))"
+  winBASE="(defpoll ${winUUID}_tabs :initial '' :interval '10ms' `cat $(get_temp_dir)/$winUUID/tabs.json`)(defwindow WINDOW :geometry (geometry :anchor 'top left') :wm-ingore false :stacking 'bg' :windowtype 'normal' (winBingle :content-yuck '(context)' :winUUID 'WINDOW' :winX '$winX' :winY '$winY' :winW '$winW' winH '$winH'))"
+
+  ## baseJSON: the basic template json to use to store tabs.
+  winBaseJson="{tabs: []}"
 
   ## format window position and size for use as an argument to `eww open`
   winPos="${winX}x${winY}"

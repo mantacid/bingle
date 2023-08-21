@@ -1,4 +1,4 @@
-(defwidget winFrame [?tab-yuck ?window-classes ?winUUID]
+(defwidget winFrame [?tab-yuck ?window-classes ?winUUID ?tabJSON] ;;tabJSON is variable defined at window spawning that points to the window json.
   (box :width "100%"
        :height "24px"
        :class "frame ${window-classes}"
@@ -24,13 +24,8 @@
            :spacing "2px"
            :space-evenly true
 
-        ;;hardcoded for now
-
-        (tab :tabLabel "tab 1"
-             :tabIcon "process-stop-symbolic"
-        )
-        (tab :tabLabel "tab number 22222222"
-             :tabIcon "process-stop-symbolic"
+        (for i in tabJSON
+          (tab :tabUUID "${tabJSON}.tabs[i]" :tabLabel "${tabJSON}.tabs[i].name" :tabIcon "${tabJSON}.tabs[i].icon" :appSessionYuck "${tabJSON}.tabs[i].content" :winUUID "${tabJSON}.tabs[i].winUUID")
         )
         (newTab)
       )
