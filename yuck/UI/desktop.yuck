@@ -1,3 +1,6 @@
+;;;;;;;;;; INCLUDE CONFIG ;;;;;;;;;;
+;;(include "conf/desktop.yuck")
+
 (defvar sanityCheck "MAN") ;this is to test event hendlers.
 (defwidget desktop []
   (eventbox :active true
@@ -16,6 +19,7 @@
     (box :class "wallpaper"
          :width "100%"
          :height "100%"
+         :style "background-image: url('${EWW_CONFIG_DIR}/${WP_PATH}'); background-size: ${WP_SCALE}"
       ;sanityCheck
       (children) ;;Optional, can be used to hide some readouts, trays, widgets, etc.
     )

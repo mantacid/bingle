@@ -1,0 +1,5 @@
+;;;;; DESKTOP CONFIG ;;;;;
+
+;; define wallpaper path and scaling
+(defvar WP_PATH "wallpaper.png")
+(defvar WP_SCALE "cover")

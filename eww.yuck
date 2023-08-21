@@ -10,6 +10,9 @@
 ;; INCLUDE YUCK THAT DEFINES BASIC UI ELEMENTS
 (include "yuck/UI/main.yuck")
 
+;; INCLUDE MAIN CONFIG FILE, WHICH POINTS TO ALL (SYSTEM) SUBCONFIGS.
+(include "conf/main.yuck")
+
 (defwindow tester :geometry (geometry :x "10"
                                       :y "10"
                                       :anchor "top left"

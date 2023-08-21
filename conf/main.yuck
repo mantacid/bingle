@@ -1,0 +1,2 @@
+;; Each of these include statements will have its own settings page.
+(include "conf/desktop.yuck")

@@ -6,12 +6,12 @@ It takes a unique approach to its UI, taking inspiration from the [AvdanOS conce
 - Tabs can be dragged to the taskbar to turn them into inline widgets.
 - Tabs can be dragged to the desktop to make widgets there
 - Tabs containing different applications can share a window
-- The desktop can move out of the way to reveal user-made content, such as a menu, system information, really anything that can be made with EWW can be substituted in for anything else.
+- The desktop can be made to move out of the way to reveal user-made content, such as a menu, system information, really anything that can be made with EWW can be substituted in for anything else.
 - context menus can use arbitrary yuck in their options, such as an inline color picker for example.
 
 Things BINGLE cannot do:
 - Support a native web browser. EWW doesn't have a way to render HTML.
-- Act as a compositor. Imagemagick can be added to the project to fake it though.
+- Act as a compositor. Imagemagick can be added to the project to fake things like blur though.
 
 ## DEPENDENCIES
-- [xdotool](https://github.com/jordansissel/xdotool) (for X11 desktops)
+- [xdotool](https://github.com/jordansissel/xdotool) (gets mouse cursor & screen information on systems that use X11.)
