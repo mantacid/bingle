@@ -1,0 +1,87 @@
+(defwidget winFrame [?tab-yuck ?window-classes ?winUUID]
+  (box :width "100%"
+       :height "24px"
+       :class "frame ${window-classes}"
+       :hexpand true
+       :vexpand false
+       :halign "fill"
+       :valign "start"
+       :space-evenly false
+       :orientation "h"
+       :active true
+       :spacing "2px"
+    (eventbox :class "tabzone"
+              :halign "fill"
+              :hexpand true
+              :vexpand true
+              :valign "start"
+
+              ;:ondropped
+      (box :orientation "h"
+           :hexpand true
+           :halign "start"
+           :height "20px"
+           :spacing "2px"
+           :space-evenly true
+
+        ;;hardcoded for now
+
+        (tab :tabLabel "tab 1"
+             :tabIcon "process-stop-symbolic"
+        )
+        (tab :tabLabel "tab number 22222222"
+             :tabIcon "process-stop-symbolic"
+        )
+        (newTab)
+      )
+    )
+    (box :class "frame"
+         :halign "end"
+         :hexpand "fill"
+      (winControls :isMaximized false
+                   :hexpand false
+                   :vexpand false
+                   :halign "end"
+      )
+    )
+  )
+)
+
+(defwidget winContent [?yuck]
+  (box :class "content"
+       :hexpand true
+       :vexpand true
+       :valign "fill"
+       :halign "fill"
+       :height "100%"
+       :space-evenly true
+       :spacing "4px"
+    (literal :content yuck
+             :width "100%"
+             :height "80%"
+    )
+  )
+)
+
+(defwidget winBingle [content-yuck ?window-classes ?winUUID ?winX ?winY ?winW ?winH]
+  (box :class "window ${window-classes}"
+       :orientation "v"
+       :space-evenly false
+       :halign: "fill"
+    (winFrame)
+    (winContent)
+
+  )
+)
+
+(defwindow WINDOW :geometry (geometry :x "10%"
+                                      :y "10%"
+                                      :width "60%"
+                                      :height "40%"
+                                      :anchor "top left"
+                            )
+                   :wm-ingore false
+                   :stacking "bg"
+                   :windowtype "normal"
+  (winBingle :content-yuck "(context)")
+)
