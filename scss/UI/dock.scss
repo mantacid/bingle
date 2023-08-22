@@ -1,21 +1,19 @@
 *{all: unset}
 
 .dock-item {
-  .icon {
-    margin: 3px;
-  }
   background-color: transparent;
-  padding: 0px;
+  border-radius: $rad_btn_border_large;
 }
 
-.icon.search {
-
-  border-radius: $rad_btn_border_large 0 0 $rad_btn_border_large;
+.icon {
+  padding: 3px;
+  margin: 3px;
 }
 
-.toggled {
+.search_dormant {
+  background-color: transparent;
 }
 
-.search:focused {
-  border: none;
+.search_toggled {
+  background-color: $bg_main_dark;
 }

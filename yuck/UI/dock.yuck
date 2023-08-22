@@ -1,25 +1,33 @@
-(defwidget btnSearch [showState]
-  (box :class "dock-item search {showState ? 'search-toggled' : 'dormant'}"
+
+(defwidget btnSearch [showState btnHeight]
+  (box :class "dock-item ${showState ? 'search_toggled' : 'search_dormant'}"
        :orientation "h"
        :space-evenly false
        :active true
        :valign "fill"
        :halign "start"
-    (button :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${showState}=true"
-              :width: "20px"
-              :hexpand false
-              :class "search {showState ? 'toggled' : 'dormant'}"
+       :width "300px"
+    (eventbox :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=true"
+              :onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false"
+              :width btnHeight
+              :hexpand true
+              :vexpand true
               :active true
-      (icon :name "system-search-symbolic"
-            :class "search dock {showState ? 'toggled' : 'dormant'}"
-      )
-    )
-    (revealer :transition "slideright"
-              :duration "50ms"
-              :reveal showState
-              :width: "100px"
-      (input :class "search"
-             :value ""
+              :space-evenly false
+      (box :hexpand true
+           :space-evenly false
+        (icon :name "system-search-symbolic"
+              :hexpand false
+        )
+        (revealer :transition "slideright"
+                  :duration "50ms"
+                  :reveal showState
+                  :width: "300px"
+                  :active true
+          (input :class "search"
+                 :value ""
+          )
+        )
       )
     )
   )
@@ -31,12 +39,14 @@
                 :focusable true
                 :reserve (struts :distance "10px" :side "top")
                 :geometry (geometry :width "99%"
-                                    :height "30px"
+                                    :height "40px" ;;hardcoded because windows can't parse variables apparently.
                                     :x "0.5%"
                                     :y "-10px"
                                     :anchor "bottom left"
                           )
   (box :class "dock"
-    (btnSearch :showState isSearchExpanded)
+    (btnSearch :showState isSearchExpanded :btnHeight DOCK_H)
   )
 )
+
+(defvar isSearchExpanded false)
