@@ -7,13 +7,13 @@
        :valign "fill"
        :halign "start"
        :width "300px"
-    (eventbox :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=true"
-              :onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false"
+       :hexpand true
+    (eventbox :onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=true"}
+              ;:onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false"
               :width btnHeight
               :hexpand true
               :vexpand true
               :active true
-              :space-evenly false
       (box :hexpand true
            :space-evenly false
         (icon :name "system-search-symbolic"
@@ -26,6 +26,7 @@
                   :active true
           (input :class "search"
                  :value ""
+                 :width "400px"
           )
         )
       )
