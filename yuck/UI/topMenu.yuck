@@ -6,7 +6,7 @@
        :orientation "h"
        :hexpand true
        :halign "start"
-    (for menuItems in menuJSON
+    (for menuItems in optJSON
       (button "placeholder")
     )
   )
