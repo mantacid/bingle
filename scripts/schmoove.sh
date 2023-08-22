@@ -26,7 +26,7 @@ get-temp-dir() {
 
 tab-add() {
   ## define local variables
-  baseJSON="TABUUID: {name: 'LABEL', icon: 'ICON', content: 'CONTENT', winUUID: 'WINUUID'},"
+  baseJSON="TABUUID: {name: 'LABEL', icon: 'ICON', content: 'CONTENT'}"
   tabUUID=$(uuidgen)
 
   ## define names for arguments
@@ -37,7 +37,7 @@ tab-add() {
 
 
   ## generate the tab json. This will be inserted into the window's tab list. tabs appear in an order defined by their index in the list.
-  tabJSON=$(echo $(echo $(echo $(echo $(echo $baseJSON | sed "s/TABUUID/$tabUUID/g") | sed "s/LABEL/$tabLabl/g") | sed "s/ICON/$tabIcon/g") | sed "s/CONTENT/$appYuck/g") | sed "s/WINUUID/$winUUID/g")
+  tabJSON=$(echo $(echo $(echo $(echo $baseJSON | sed "s/TABUUID/$tabUUID/g") | sed "s/LABEL/$tabLabl/g") | sed "s/ICON/$tabIcon/g") | sed "s/CONTENT/$appYuck/g")
 
   ## find the window JSON file, use python implementation to populate the tab array.
 }

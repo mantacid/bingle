@@ -25,7 +25,7 @@
            :space-evenly true
 
         (for i in tabJSON
-          (tab :tabUUID "${tabJSON}.tabs[i]" :tabLabel "${tabJSON}.tabs[i].name" :tabIcon "${tabJSON}.tabs[i].icon" :appSessionYuck "${tabJSON}.tabs[i].content" :winUUID "${tabJSON}.tabs[i].winUUID")
+          (tab :tabUUID "${tabJSON}.tabs[i]" :tabLabel "${tabJSON}.tabs[i].name" :tabIcon "${tabJSON}.tabs[i].icon" :appSessionYuck "${tabJSON}.tabs[i].content" :winUUID winUUID)
         )
         (newTab)
       )
