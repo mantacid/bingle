@@ -1,0 +1,13 @@
+;; WIP. Each app will provide json that dictates their menu.
+
+;; this can also be rendered in a MacOS-like topbar, as both it and any windows would be querying the focused application for its menu data anyway.
+(defwidget topMenu [optJSON]
+  (box :class ""
+       :orientation "h"
+       :hexpand true
+       :halign "start"
+    (for menuItems in menuJSON
+      (button "placeholder")
+    )
+  )
+)
