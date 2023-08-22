@@ -17,6 +17,7 @@
       (box :hexpand true
            :space-evenly false
         (icon :name "system-search-symbolic"
+              :class {showState ? 'accent' : ''}
               :hexpand false
         )
         (revealer :transition "slideright"
@@ -26,7 +27,7 @@
                   :active true
           (input :class "search"
                  :value ""
-                 :width "400px"
+                 :width "300px"
           )
         )
       )
