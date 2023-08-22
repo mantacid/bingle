@@ -3,9 +3,12 @@
 .dock-item {
   background-color: transparent;
   border-radius: $rad_btn_border_large;
+  margin: 1px;
 }
 
 .icon {
+  @include trans-ease-anticipate;
+  transition-property: color;
   padding: 3px;
   margin: 3px;
 }
