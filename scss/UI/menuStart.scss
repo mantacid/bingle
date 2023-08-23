@@ -1,0 +1,33 @@
+* {all: unset;}
+
+.start {
+  .top {
+    padding: 5px;
+  }
+  background-color: $bg_main;
+  border-radius: $rad_win_border_large;
+  padding: 5px;
+}
+
+.widget {
+  :first-child {
+    margin-left: 5px;
+  }
+  background-color: $bg_main_light;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+.user {
+  padding: $card_padding;
+  background-color: $bg_main_light;
+  border-radius: $rad_border_avatar $rad_border_avatar $rad_border_avatar $rad_border_avatar ;
+}
+
+.userName {
+  padding: $card_padding;
+}
+
+.avatar {
+  border-radius: $rad_border_avatar;
+}

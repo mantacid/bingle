@@ -21,7 +21,7 @@
               :hexpand false
         )
         (revealer :transition "slideright"
-                  :duration "50ms"
+                  :duration "75ms"
                   :reveal showState
                   :width: "300px"
                   :active true

@@ -1,0 +1,89 @@
+(defvar showStart true)
+(defwidget optButtons []
+  (centerbox
+    (button "opt1")
+    (button "opt2")
+    (button "opt3")
+  )
+)
+
+(defwidget userCard [uName avatar]      ;; avatar image MUST be 64x64px
+  (box :class ""
+       :orientation "h"
+       :space-evenly false
+      (box :class "user"
+        (image :class "avatar"
+               :path avatar
+               :vexpand false
+               :hexpand false
+               :valign "start"
+               :image-width: "50%"
+               :image-height: "50%"
+        )
+
+          (label :class "userName"
+                 :truncate-left false
+                 :limit-width 9
+                 :truncate-right true
+                 :show-truncated true
+                 :text uName
+                 :justify "right"
+                 :halign "center"
+                 :valign "fill"
+                 :hexpand false
+                 :vexpand true
+          )
+
+      )
+
+  )
+)
+
+(defwidget menuStart [showState]
+  (revealer :reveal showState
+            :transition "slideup"
+            :duration "500ms"
+            :active true
+    (box :class "menu start"
+         :hexpand true
+         :vexpand true
+         :orientation "v"
+         :space-evenly false
+         :spacing "5px"
+
+      (box :class "menu start top" ;; widgets should take up no more than 35% of the vertical space of the menu
+           :hexpand true
+           :vexpand false
+           :valign "fill"
+           :height "35%"
+           :spacing "5px"
+        ;; placeholders
+        (button :class "widget" "test")
+        (button :class "widget" "test 2")
+        (button :class "widget" "test 3")
+      )
+
+      (box :class "menu start bottom"
+           :hexpand true
+           :halign "fill"
+
+        (userCard :uName "User" :avatar USER_PROFILE_IMG)
+      )
+
+    )
+  )
+)
+
+;; might get rid of this if i can include the start menu with the dock file
+(defwindow MENU_START :windowtype "dock"
+                      :wm-ignore false
+                      :stacking "bg"
+                      :focusable true
+                      :geometry (geometry :x "0%"
+                                          :y {-1 * (40 + 20)} ;; 40px is the height of the dock, not including any interior padding
+                                          :width "55%"
+                                          :height "70%"
+                                          :anchor "bottom center"
+                                )
+  (menuStart :showState showStart)
+)
