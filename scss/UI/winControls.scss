@@ -1,8 +1,5 @@
 /*IMPORT THIS FILE WHEN STYLING WINDOW CONTROLS.*/
-
-/*todo: update import paths based on a config file*/
-@import "../themes/Default/main.scss"
-
+*{all: unset;}
 .winControl {
   background-color: $btn_bg;
 }

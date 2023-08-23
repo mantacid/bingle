@@ -20,7 +20,7 @@
       (box :orientation "h"
            :hexpand true
            :halign "start"
-           :height "20px"
+           :height WIN_FRAME_H
            :spacing "2px"
            :space-evenly true
 
