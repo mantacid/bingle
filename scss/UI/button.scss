@@ -12,10 +12,12 @@ button:hover {
   background-color: unset;
   background-color: $btn_bg_hov;
   transition-property: background-color;
+  /*box-shadow: 0 $btn_float_dist 2px $col_acc;*/
+  /*margin-bottom: $btn_float_dist;*/
 }
 
 button:active {
-  @include trans-ease-anticipate;
+  @include trans-instant;
   background-color: unset;
   background-color: $btn_bg_act;
   transition-property: background-color;

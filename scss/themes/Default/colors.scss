@@ -1,6 +1,6 @@
 $bg_menu: rgba(54,58,66,1);
 $bg_main: rgba(41,46,49,1);
-$bg_main_light: rgba(52,55,58,1);
+$bg_main_light: rgba(48,55,62,1);
 $bg_main_dark: rgba(29,33,36,1);
 
 $shade_intensity: 0%;
@@ -24,6 +24,7 @@ $btn_bg_act_opaq: mix(rgb(69,90,100),$bg_main,100%);
 $txt: rgb(236,239,241);
 $txt_inactive: rgb(144,164,171);
 
+$col_close: rgb(230,37,85);
 $col_close_hov: rgba(230,37,85,0.4);
 $col_close_act: rgba(255,0,64,1.0);
 
@@ -36,3 +37,8 @@ $tab_bg_hov_opaq: mix(rgb(56,73,81),$bg_main,100%);
 $tab_bg_act_opaq: mix(rgb(69,90,100),$bg_main,100%);
 
 $col_acc: rgb(229,73,25);
+
+/*define certain system ICON colors such as shutdown, warning, etc. as mixins.*/
+@mixin col_shutdown {
+  color: $col_close;
+}

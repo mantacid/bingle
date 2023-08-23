@@ -1,9 +1,29 @@
 (defvar showStart true)
-(defwidget optButtons []
-  (centerbox
-    (button "opt1")
-    (button "opt2")
-    (button "opt3")
+(defvar showPowerMenu false)
+
+(defwidget optButtons [powerShowState]
+  (box :class "optButtons"
+       :orientation "h"
+       :halign "center"
+       :hexpand true
+       :valign "center"
+       :active true
+       :space-evenly false
+    (button :class "optButton"
+            :hexpand false
+            ;:onclick "" ;;launch settings app
+      (icon :name "emblem-system-symbolic")
+    )
+
+    (button :class "optButton"
+      (icon :name "view-app-grid-symbolic") ;;change this icon in the theme
+    )
+
+    (button :class "optButton"
+            ;:onclick "shutdown now" REFINE THIS
+            :onrightclick "" ;;open a seperate power control window OR a context menu
+      (icon :name "system-shutdown-symbolic")
+    )
   )
 )
 
@@ -11,31 +31,29 @@
   (box :class ""
        :orientation "h"
        :space-evenly false
-      (box :class "user"
-        (image :class "avatar"
-               :path avatar
-               :vexpand false
-               :hexpand false
-               :valign "start"
-               :image-width: "50%"
-               :image-height: "50%"
-        )
-
-          (label :class "userName"
-                 :truncate-left false
-                 :limit-width 9
-                 :truncate-right true
-                 :show-truncated true
-                 :text uName
-                 :justify "right"
-                 :halign "center"
-                 :valign "fill"
-                 :hexpand false
-                 :vexpand true
-          )
-
+    (box :class "user"
+      (image :class "avatar"
+             :path avatar
+             :vexpand false
+             :hexpand false
+             :valign "start"
+             :image-width: "50%"
+             :image-height: "50%"
       )
 
+      (label :class "userName"
+             :truncate-left false
+             :limit-width 9
+             :truncate-right true
+             :show-truncated true
+             :text uName
+             :justify "right"
+             :halign "center"
+             :valign "fill"
+             :hexpand false
+             :vexpand true
+      )
+    )
   )
 )
 
@@ -54,20 +72,31 @@
       (box :class "menu start top" ;; widgets should take up no more than 35% of the vertical space of the menu
            :hexpand true
            :vexpand false
-           :valign "fill"
+           :valign "end"
            :height "35%"
            :spacing "5px"
-        ;; placeholders
-        (button :class "widget" "test")
-        (button :class "widget" "test 2")
-        (button :class "widget" "test 3")
+        ;; placeholders, replace with eventboxes that can recieve tabdrops
+        (button :class "widget" :valign "center" :vexpand false "test")
+        (button :class "widget" :valign "center" :vexpand false "test 2")
+        (button :class "widget" :valign "center" :vexpand false "test 3")
+      )
+
+      (box :class "menu start main"
+           :hexpand true
+           :vexpand true
       )
 
       (box :class "menu start bottom"
            :hexpand true
            :halign "fill"
 
-        (userCard :uName "User" :avatar USER_PROFILE_IMG)
+        (userCard :uName "User"
+                  :avatar USER_PROFILE_IMG
+                  :halign "start"
+        )
+
+        (optButtons :powerShowState showPowerMenu)
+        (label :text {EWW_DISK["/"].used_perc})
       )
 
     )

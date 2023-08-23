@@ -3,11 +3,16 @@ $rad_btn_border_small: 3px;
 $rad_win_border_large: 9px;
 $rad_win_border_small: 5px;
 
+/*dictates how far buttons will float when hovered. WIP*/
+$btn_float_dist: 3px;
+
 /*dictates the height of the window frame and its tabs.*/
 $win_frame_height: 24px;
 /*determines padding for card elements such as the user icon and various widgets in the start menu.*/
 $card_padding: 5px;
 
+$start_menu_padding: 15px;
+
 /*dictates the radius of the user icon and its containing card.*/
 $rad_border_avatar_mult: 0.5;
-$rad_border_avatar: calc(calc(128px + $card_padding) * $rad_border_avatar_mult);
+$rad_border_avatar: calc(calc(64px + $card_padding) * $rad_border_avatar_mult);

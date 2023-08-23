@@ -2,25 +2,37 @@
 
 .start {
   .top {
-    padding: 5px;
+    margin: $start_menu_padding;
+  }
+
+  .bottom {
+    background-color: $bg_main_dark;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: $start_menu_padding;
+    padding-right: $start_menu_padding;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 0 0 $rad_win_border_large $rad_win_border_large;
+
   }
   background-color: $bg_main;
   border-radius: $rad_win_border_large;
-  padding: 5px;
 }
 
 .widget {
   :first-child {
-    margin-left: 5px;
+    margin-left: $start_menu_padding;
   }
-  background-color: $bg_main_light;
-  margin-right: 5px;
+  background-color: $btn_bg;
+  margin-right: $start_menu_padding;
   padding: 10px;
 }
 
 .user {
   padding: $card_padding;
-  background-color: $bg_main_light;
+  background-color: $bg_main;
   border-radius: $rad_border_avatar $rad_border_avatar $rad_border_avatar $rad_border_avatar ;
 }
 
@@ -30,4 +42,41 @@
 
 .avatar {
   border-radius: $rad_border_avatar;
+}
+
+.optButtons {
+  button,.optButton {
+    background-color: $btn_bg;
+    border-radius: $rad_btn_border_large;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  :hover {
+    @include trans-ease-anticipate;
+    background-color: unset;
+    background-color: $btn_bg_hov;
+    transition-property: background-color;
+  }
+
+  :active {
+    @include trans-instant;
+  background-color: unset;
+  background-color: $btn_bg_act;
+  transition-property: background-color;
+  }
+
+  padding: 2px;
+}
+
+box.power.show {
+  padding: 0px;
+  background-color: $bg_main;
+}
+
+button.optButton.show {
+  background-color: transparent;
 }
