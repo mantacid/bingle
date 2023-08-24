@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ## get mouse data as space-delineated string
 ##MOUSEPOLL=$(echo "$(xdotool getmouselocation)" | sed 's/x://g; s/y://g; s/screen://g; s/window://g; s/ /${nl}')
 eval $(xdotool getmouselocation --shell --prefix BINGLE_)

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ## This file handles the Schmoovement of data between tabs, windows, and other bingle elements. It's currently a bit hacky, but I hope to polish it up incrementally.
 ## When implementing tab-to-widget dragging, remember that the tabs don't need to be displayed in that case, and that the implementation can be simplified because of this.
 
@@ -26,7 +26,7 @@ get-temp-dir() {
 
 tab-add() {
   ## define local variables
-  baseJSON="TABUUID: {name: 'LABEL', icon: 'ICON', content: 'CONTENT'}"
+  baseJSON="{uuid: 'TABUUID', name: 'LABEL', icon: 'ICON', content: 'CONTENT'}"
   tabUUID=$(uuidgen)
 
   ## define names for arguments
@@ -35,11 +35,14 @@ tab-add() {
   tabLabl="$3"
   tabIcon="$4"
 
+  winDIR="$(get_temp_dir)/$winUUID"
+  winTabs="${winDir}/tabs.json"
 
   ## generate the tab json. This will be inserted into the window's tab list. tabs appear in an order defined by their index in the list.
   tabJSON=$(echo $(echo $(echo $(echo $baseJSON | sed "s/TABUUID/$tabUUID/g") | sed "s/LABEL/$tabLabl/g") | sed "s/ICON/$tabIcon/g") | sed "s/CONTENT/$appYuck/g")
 
   ## find the window JSON file, use python implementation to populate the tab array.
+  newJSON=$( | python json-handler.py $(echo "$winTabs $tabJSON" $(cat $winTabs)))
 }
 
 #######################################################################################
