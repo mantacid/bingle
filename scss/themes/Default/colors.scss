@@ -3,15 +3,15 @@ $bg_main: rgba(41,46,49,1);
 $bg_main_light: rgba(48,55,62,1);
 $bg_main_dark: rgba(29,33,36,1);
 
-$shade_intensity: 0%;
+$shade_intensity: 6%;
 $shade_contrast_multiplier: 5.0;
-$col_light: rgba(246,196,255,1);
-$col_shade:rgba(53,25,58);
+$col_light: rgba(200,196,255,1);
+$col_shade:rgba(10,17,27);
 
 $bg_main_border_highlight_primary: mix($col_light, $bg_main, calc($shade_contrast_multiplier * $shade_intensity));
 $bg_main_border_shadow_primary: mix($col_shade, $bg_main, calc($shade_contrast_multiplier * $shade_intensity));
-$bg_main_border_highlight_secondary: mix($col_light, $bg_main, $shade_intensity);
-$bg_main_border_shadow_secondary: mix($col_shade, $bg_main, $shade_intensity);
+$bg_main_border_highlight_secondary: mix($col_light, $bg_main, calc(calc($shade_contrast_multiplier / 2) * $shade_intensity));
+$bg_main_border_shadow_secondary: mix($col_shade, $bg_main, calc(calc($shade_contrast_multiplier / 2) * $shade_intensity));
 
 $btn_bg: rgba(56,73,81,0.6);
 $btn_bg_hov: rgba(56,73,81,1.0);

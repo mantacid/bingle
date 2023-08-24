@@ -15,3 +15,21 @@ Things BINGLE cannot do:
 
 ## DEPENDENCIES
 - [xdotool](https://github.com/jordansissel/xdotool) (gets mouse cursor & screen information on systems that use X11.)
+
+# Repository Structure
+Each directory will have a README file explaining its purpose and contents.
+
+## `conf/`
+Contains files used to define the behavior of the system.
+
+## `scripts/`
+Contains helpful scripts and utilities.
+
+## `scss/`
+Contains stylesheets.
+
+## `tmp/`
+Will be used to store window data. Currently Unimplemented.
+
+## `yuck/`
+Contains yuck to render the UI and applications.
