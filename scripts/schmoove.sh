@@ -42,7 +42,7 @@ tab-add() {
   tabJSON=$(echo $(echo $(echo $(echo $baseJSON | sed "s/TABUUID/$tabUUID/g") | sed "s/LABEL/$tabLabl/g") | sed "s/ICON/$tabIcon/g") | sed "s/CONTENT/$appYuck/g")
 
   ## find the window JSON file, use python implementation to populate the tab array.
-  newJSON=$( | python json-handler.py $(echo "$winTabs $tabJSON" $(cat $winTabs)))
+  newJSON=$(python json-handler.py $(echo "$winTabs $tabJSON" $(cat $winTabs)))
 }
 
 #######################################################################################
