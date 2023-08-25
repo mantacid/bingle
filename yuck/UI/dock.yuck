@@ -1,6 +1,5 @@
-
 (defwidget btnSearch [showState btnHeight]
-  (box :class "dock-item ${showState ? 'search_toggled' : 'search_dormant'}"
+  (box :class ""
        :orientation "h"
        :space-evenly false
        :active true
@@ -8,7 +7,8 @@
        :halign "start"
        :width "300px"
        :hexpand true
-    (eventbox :onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=true"}
+    (eventbox :class "dock-item ${showState ? 'search_toggled' : 'search_dormant'}"
+              :onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=true"}
               ;:onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false"
               :width btnHeight
               :hexpand true
@@ -17,8 +17,8 @@
       (box :hexpand true
            :space-evenly false
         (icon :name "system-search-symbolic"
-              :class {showState ? 'accent' : ''}
-              :hexpand false
+              :class "${showState ? 'accent' : ''}"
+              :hexpand true
         )
         (revealer :transition "slideright"
                   :duration "75ms"
@@ -52,3 +52,4 @@
 )
 
 (defvar isSearchExpanded false)
+(defvar isStartExpanded false)

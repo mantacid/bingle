@@ -1,7 +1,14 @@
 *{all: unset}
 
 .dock-item {
-  background-color: transparent;
+  .icon {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .dock-item {
+    margin: 3px;
+  }
+  background-color: $btn_bg;
   border-radius: $rad_btn_border_large;
   margin: 1px;
 }
@@ -10,7 +17,7 @@
   @include trans-ease-anticipate;
   transition-property: color;
   padding: 3px;
-  margin: 3px;
+  margin: 0px;
 }
 
 .search_dormant {
