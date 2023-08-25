@@ -6,7 +6,7 @@
        :orientation "h"
        :halign "center"
        :hexpand true
-       :valign "center"
+       :valign "center" ;;will look better when user icon properly scaled
        :active true
        :space-evenly false
     (button :class "optButton"
@@ -27,7 +27,7 @@
   )
 )
 
-(defwidget userCard [uName avatar]      ;; avatar image MUST be 64x64px
+(defwidget userCard [uName avatar]      ;; avatar image MUST be scaled to 32x32
   (box :class ""
        :orientation "h"
        :space-evenly false
@@ -60,45 +60,49 @@
 (defwidget menuStart [showState]
   (revealer :reveal showState
             :transition "slideup"
-            :duration "500ms"
+            :duration "250ms"
             :active true
-    (box :class "menu start"
-         :hexpand true
-         :vexpand true
-         :orientation "v"
-         :space-evenly false
-         :spacing "5px"
-
-      (box :class "menu start top" ;; widgets should take up no more than 35% of the vertical space of the menu
-           :hexpand true
-           :vexpand false
-           :valign "end"
-           :height "35%"
-           :spacing "5px"
-        ;; placeholders, replace with eventboxes that can recieve tabdrops
-        (button :class "widget" :valign "center" :vexpand false "test")
-        (button :class "widget" :valign "center" :vexpand false "test 2")
-        (button :class "widget" :valign "center" :vexpand false "test 3")
-      )
-
-      (box :class "menu start main"
+    (eventbox :active true
+              :onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false"
+              :halign "center"
+      (box :class "menu start"
            :hexpand true
            :vexpand true
-      )
+           :halign "center"
+           :orientation "v"
+           :space-evenly false
+           :spacing "5px"
 
-      (box :class "menu start bottom"
-           :hexpand true
-           :halign "fill"
-
-        (userCard :uName "User"
-                  :avatar USER_PROFILE_IMG
-                  :halign "start"
+        (box :class "menu start top" ;; widgets should take up no more than 35% of the vertical space of the menu
+             :hexpand true
+             :vexpand false
+             :valign "end"
+             :height "35%"
+             :spacing "5px"
+             ;; placeholders, replace with eventboxes that can recieve tabdrops
+          (button :class "widget" :valign "center" :vexpand false "test")
+          (button :class "widget" :valign "center" :vexpand false "test 2")
+          (button :class "widget" :valign "center" :vexpand false "test 3")
         )
 
-        (optButtons :powerShowState showPowerMenu)
-        (label :text {EWW_DISK["/"].used_perc})
-      )
+        (box :class "menu start main"
+             :hexpand true
+             :vexpand true
+        )
 
+        (box :class "menu start bottom"
+             :hexpand true
+             :halign "fill"
+
+          (userCard :uName "User"
+                    :avatar USER_PROFILE_IMG
+                    :halign "start"
+          )
+
+          (optButtons :powerShowState showPowerMenu)
+          (label :text {EWW_DISK["/"].used_perc})
+        )
+      )
     )
   )
 )

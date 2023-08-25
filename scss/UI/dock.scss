@@ -1,5 +1,14 @@
 *{all: unset}
 
+.dock {
+  /*i am a fucking genius*/
+  * {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  margin-top: 10px;
+}
+
 .dock-item {
   .icon {
     margin-left: 8px;

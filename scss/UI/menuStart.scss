@@ -1,5 +1,8 @@
 * {all: unset;}
 
+.menu.start {
+}
+
 .start {
   .top {
     margin: $start_menu_padding;
@@ -52,6 +55,8 @@
     margin-right: 5px;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 
 
