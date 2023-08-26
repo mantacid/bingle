@@ -58,12 +58,16 @@
        :orientation "v"
        :space-evenly false
        :valign "end"
-    (menuStart :class "menu start"
-               :showState startShowState)
+    ;;;--POPUP MENUS GO HERE IF/WHEN WINDOWS GAIN A CLICKTHROUGH ATTRIBUTE--;;;
+    ;;(menuStart :class "menu start"
+    ;;           :showState startShowState
+    ;;)
+    ;;;--CHILDREN--;;;
     (dockMenuBtns :showL searchShowState
                   :showC startShowState
                   :btnHeight DOCK_H
     )
+    (children)
   )
 )
 
