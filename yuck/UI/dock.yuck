@@ -38,10 +38,10 @@
 (defwidget dockMenuBtns [showL showC ?showR btnHeight]
   (box :class "dock"
        :orientation "h"
-       :space-evenly true
+       :space-evenly false
        :spacing "3px"
        :hexpand false
-       :halign "center"
+       :halign "start"
        :vexpand true
        :valign "fill"
        :active true
@@ -50,6 +50,43 @@
     (children :nth 1)
   )
 
+)
+
+(defwidget taskBar []
+  (box :class "dock"
+       :orientation "h"
+       :space-evenly true
+       :vexpand true
+       :hexpand true
+       :halign "fill"
+    (children) ;;will contain applications
+  )
+)
+
+(defwidget infoBar []
+  (box :class "dock invis"
+       :width "20%"
+       :orientation "h"
+       :space-evenly true
+       :vexpand true
+       :hexpand true
+       :halign "fill"
+    (eventbox
+      (children) ;;will accept tabs later
+    )
+  )
+)
+
+(defwidget sysTray []
+  (box :class "dock"
+       :width: "20%"
+       :orientation "h"
+       :space-evenly true
+       :vexpand true
+       :hexpand true
+       :halign "fill"
+    (children) ;;will contain popout menus
+  )
 )
 
 ;;main dock definition. we NEED a clickthrough flag!
@@ -63,12 +100,18 @@
                :showState startShowState
     )
     ;;;--CHILDREN--;;;
-    (dockMenuBtns :showL searchShowState
-                  :showC startShowState
-                  :btnHeight DOCK_H
-      (button :onclick {startShowState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=true"}) ;;temporary
+    (box :orientation "h"
+         :space-evenly "false"
+         :spacing "5px"
+      (taskBar)
+      (dockMenuBtns :showL searchShowState
+                    :showC startShowState
+                    :btnHeight DOCK_H
+        (button :onclick {startShowState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=true"} ":3") ;;temporary
+      )
+      (infoBar)
+      (sysTray)
     )
-    (children)
   )
 )
 

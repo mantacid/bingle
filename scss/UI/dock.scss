@@ -7,6 +7,8 @@
     margin-bottom: 3px;
   }
   margin-top: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .dock-item {
@@ -29,10 +31,23 @@
   margin: 0px;
 }
 
+.dock:first-child {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.dock:last-child {
+  margin-right: unset;
+}
+
 .search_dormant {
   background-color: transparent;
 }
 
 .search_toggled {
   background-color: $bg_main_dark;
+}
+
+.invis {
+  background-color: transparent;
 }
