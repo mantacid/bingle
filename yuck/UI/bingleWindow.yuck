@@ -58,7 +58,7 @@
   )
 )
 
-(defwidget winBingle [content-yuck ?window-classes ?winUUID ?winX ?winY ?winW ?winH]
+(defwidget winBingle [?content-yuck ?window-classes ?winUUID ?winX ?winY ?winW ?winH]
   (box :class "window ${window-classes}"
        :orientation "v"
        :space-evenly false

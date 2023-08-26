@@ -35,7 +35,7 @@ tab-add() {
   tabLabl="$3"
   tabIcon="$4"
 
-  winDIR="$(get_temp_dir)/$winUUID"
+  winDir="$(get_temp_dir)$winUUID"
   winTabs="${winDir}/tabs.json"
 
   ## generate the tab json. This will be inserted into the window's tab list. tabs appear in an order defined by their index in the list.
@@ -53,7 +53,7 @@ tab-add() {
 ## WIP!
 
 window-open() {
-  ## define names for arguments
+  ## define names for arguments. measurements MUST include their units.
   firstTab="$1"
   winX="$2"
   winY="$3"
@@ -64,36 +64,47 @@ window-open() {
   ## winUUID is an identifying value to name the eww window and its associated files.
   winUUID=$(uuidgen)
   ## winDir points to the directory associated with this window.
-  winDir="$(get_temp_dir)/$winUUID"
-  ## winBASE contains a template for window definitions, which in turn includes a polling/listening variable to query the tablist.
-  winBASE="(defpoll ${winUUID}_tabs :initial '' :interval '10ms' `cat $(get_temp_dir)/$winUUID/tabs.json`)(defwindow WINDOW :geometry (geometry :anchor 'top left') :wm-ingore false :stacking 'bg' :windowtype 'normal' (winBingle :content-yuck '(context)' :winUUID 'WINDOW' :winX '$winX' :winY '$winY' :winW '$winW' winH '$winH'))"
+  winDir="$(get-temp-dir)$winUUID"
+  ## winBASE points to a file containing a winndow definition template, the content of which gets added to the file def.yuck inside the window directory.
+  winBASE="$BINGLE_CONF_DIR/yuck/util/winDef.yuck"
 
   ## baseJSON: the basic template json to use to store tabs.
-  winBaseJson="{tabs: []}"
+  winBaseJson="$BINGLE_CONF_DIR/yuck/util/winTabsBase.json"
 
   ## format window position and size for use as an argument to `eww open`
   winPos="${winX}x${winY}"
   winSiz="${winW}x${winH}"
 
-  ## replace all instances of placeholder text 'WINDOW' with the window's UUID, so that it can be referred to and passed to children widgets
-  winYuck=$(echo $winBASE | sed "s/WINDOW/${winUUID}/g")
-
   ##initialize the temporary directory
   mkdir $winDir
 
-  ## create & populate the window definition file
-  touch $winDir/def.yuck
-  cat $winYuck > $winDir/def.yuck
+  ## create and populate the window definition
+  cat $winBASE > $winDir/def.yuck
 
-  ## create the json that stores the window's tabs. this file will get written to when tab changes occur on that window.
-  touch $winDir/tabs.json
+  ## format the new window definition to include relevant information
+  ## Optimize later
+  echo $(sed "s|WINDIR|$winDir|g" $winDir/def.yuck) > $winDir/def.yuck
+  echo $(sed "s|WINUUID|$winUUID|g" $winDir/def.yuck) > $winDir/def.yuck
+  echo $(sed "s|WINX|$winX|g" $winDir/def.yuck) > $winDir/def.yuck
+  echo $(sed "s|WINY|$winY|g" $winDir/def.yuck) > $winDir/def.yuck
+  echo $(sed "s|WINW|$winW|g" $winDir/def.yuck) > $winDir/def.yuck
+  echo $(sed "s|WINH|$winH|g" $winDir/def.yuck) > $winDir/def.yuck
 
-  ## prepend some yuck to the pointer file to help us reference the window later
-  pointerYuck="(include 'tmp/$winUUID/def.yuck')"
-  sed -i 'ls/^/${pointerYuck}\n/' $(get-temp-dir)/schmoove-pointers.yuck
+  ## pull some yuck from a util file to add to the pointer list
+  pointerYuck=$BINGLE_CONF_DIR/yuck/util/winPointer.yuck
+
+  ## format the contents of this new file
+  echo $(sed "s|WINUUID|$winUUID|g" $pointerYuck) >> $(get-temp-dir)schmoove-pointers.yuck
+
+  ## create and initialize the json that stores the window's tabs. this file will get written to when tab changes occur on that window.
+  cat $winBaseJson > $winDir/tabs.json
+
+  ## TODO: below
+
+  ## Write the initial tab to the json file.
 
   ## open the window, which will contain a variable to track its assigned files
-  eww -c $BINGLE_CONF_DIR open $winUUID -p $winPos -s $winSiz
+  #eww -c $BINGLE_CONF_DIR open $winUUID -p $winPos -s $winSiz
 
   ## handle the tab json using the tab-add function (WIP)
 
@@ -116,7 +127,7 @@ winUUID="$1"
 tabUUID="$2"
 
 ## local variables
-winDir="$(get_temp_dir)/$winUUID"
+winDir="$(get-temp-dir)$winUUID"
 
 ## call python implementation to handle the removal of the json list item with the key $tabUUID that is located in the file $winDir/tabs.json
 }
@@ -133,7 +144,7 @@ window-close() {
   winUUID="$1"
 
   ## define the window directory
-  winDir="$(get_temp_dir)/$winUUID"
+  winDir="$(get-temp-dir)$winUUID"
 
   ## TODO: check for tabs with unsaved content, send a confirmation dialog before closing the window.
 
@@ -143,5 +154,8 @@ window-close() {
   ## close the window
   eww -c $BINGLE_CONF_DIR close $winUUID
 }
+
+## MAIN CALL, FOR DEBUG PURPOSES ONLY
+window-open "" 100 50 400 300
 
 
