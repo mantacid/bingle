@@ -46,8 +46,8 @@
        :valign "fill"
        :active true
     (btnSearch :showState showL :btnHeight btnHeight)
+    (children :nth 0)
     (children :nth 1)
-    (children :nth 2)
   )
 
 )
@@ -59,13 +59,14 @@
        :space-evenly false
        :valign "end"
     ;;;--POPUP MENUS GO HERE IF/WHEN WINDOWS GAIN A CLICKTHROUGH ATTRIBUTE--;;;
-    ;;(menuStart :class "menu start"
-    ;;           :showState startShowState
-    ;;)
+    (menuStart :class "menu start"
+               :showState startShowState
+    )
     ;;;--CHILDREN--;;;
     (dockMenuBtns :showL searchShowState
                   :showC startShowState
                   :btnHeight DOCK_H
+      (button :onclick {startShowState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=true"}) ;;temporary
     )
     (children)
   )

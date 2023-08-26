@@ -60,7 +60,7 @@
 (defwidget menuStart [showState]
   (revealer :reveal showState
             :transition "slideup"
-            :duration "250ms"
+            :duration "125ms"
             :active true
     (eventbox :active true
               :onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false"
