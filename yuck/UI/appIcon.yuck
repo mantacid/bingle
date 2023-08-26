@@ -1,0 +1,28 @@
+;;;;; Defines various widgets for launcing programs ;;;;;
+
+(defwidget appIcon [icon name description command ?label]
+  (eventbox :class "app"
+            :onclick command
+            ;:onrightclick ""  ;;spawn context menu
+            ;:onmiddleclick ""
+            ;:onhover ""
+            ;:onhoverlost ""
+            ;:drag-type "text"
+            ;:drag-value "" ;; tab data for a new tab instance of the app
+
+            :halign "start"
+            :valign "center"
+            :hexpand false
+            :vexpand true
+            :tooltip "${name}: ${description}"
+    (box :class ""
+         :orientation "h"
+         :space-evenly false
+         :spacing "2px"
+      (icon :name icon)
+      (label :visible { '.' =~ label ? true : false}
+             :iext {label ?: ""}
+      )
+    )
+  )
+)

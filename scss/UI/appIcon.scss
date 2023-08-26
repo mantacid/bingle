@@ -1,0 +1,27 @@
+
+
+.app {
+  .icon {
+    margin: $btn_internal_padding;
+  }
+  background-color: $btn_bg;
+  border-radius: $rad_btn_border_large;
+}
+
+.app:hover {
+  @include trans-ease-anticipate;
+  background-color: unset;
+  transition-property: background-color;
+  background-color: $btn_bg_hov;
+}
+
+.app:active {
+  @include trans-instant;
+  background-color: unset;
+  transition-property: background-color;
+  background-color: $btn_bg_act;
+}
+
+label {
+
+}

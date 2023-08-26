@@ -12,8 +12,8 @@
 ;; INCLUDE MAIN CONFIG FILE, WHICH POINTS TO ALL (SYSTEM) SUBCONFIGS.
 (include "conf/main.yuck")
 
-(defwindow tester :geometry (geometry :x "10"
-                                      :y "10"
+(defwindow tester :geometry (geometry :x "50%"
+                                      :y "50%"
                                       :anchor "top left"
                                       :width "150px"
                                       :height "20px"
@@ -25,9 +25,11 @@
     ;     :tabIcon "utilities-terminal-symbolic"
     ;     :tabUUID "efb0bd7b-0cc8-4d4e-b980-546aefc2f0b3"
     ;)
-     (icon :name "window-close-symbolic" :class "accent")
+    ;(icon :name "window-close-symbolic" :class "accent")
 
     ;(winControls :isMaximized false)
+
+    (appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
 )
 
 ;; TAB AND WINDOW BUTTON HEIGHT: 20px
