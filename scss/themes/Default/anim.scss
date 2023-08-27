@@ -7,3 +7,17 @@
   transition-timing-function: linear;
   transition-duration: 0s;
 }
+
+@mixin anim-flash($col1, $col2) {
+  @keyframes anim-flash {
+    0.000% {color: $col1;}
+    24.50% {color: $col1;}
+    26.50% {color: $col2;}
+    74.50% {color: $col2;}
+    76.50% {color: $col1;}
+    100.0% {color: $col1;}
+  }
+  animation-name: anim-flash;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}

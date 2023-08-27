@@ -42,3 +42,20 @@ $col_acc: rgb(229,73,25);
 @mixin col_shutdown {
   color: $col_close;
 }
+
+/*define basic colors for the system to use in various circumstances. Examples: affirmative/negative colors, warnings, tags, etc.*/
+
+$sys_col_red_l: #f43f6d;
+$sys_col_red_d: #e63050;
+$sys_col_orange_l: #eb7d25;
+$sys_col_orange_d: #e56600;
+$sys_col_yellow_l: #f9e487;
+$sys_col_yellow_d: #f2c64c;
+$sys_col_green_l: #5be48f;
+$sys_col_green_d: #40c57a;
+$sys_col_cyan_l: #6df0df;
+$sys_col_cyan_d: #2cb8a6;
+$sys_col_blue_l: #83b9e6;
+$sys_col_blue_d: #418cc9;
+$sys_col_purple_l: #d08ce4;
+$sys_col_purple_d: #b563d1;
