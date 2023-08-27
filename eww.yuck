@@ -16,10 +16,11 @@
                                       :y "50%"
                                       :anchor "top left"
                                       :width "150px"
-                                      :height "20px"
+                                      :height "150"
                             )
                   :wm-ignore true
                   :stacking "fg"
+                  :focusable true
 
     ;(tab :tabLabel "Test Label"
     ;     :tabIcon "utilities-terminal-symbolic"
@@ -29,10 +30,13 @@
 
     ;(winControls :isMaximized false)
 
-    (appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
+    ;(appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
+
+    (toggleSwitch :stateVar toggletest :size "15px")
 
 )
 
 ;; TAB AND WINDOW BUTTON HEIGHT: 20px
 ;; WINDOW BUTTON WIDTH: 150px
 ;; TAB WIDTH: 200px
+

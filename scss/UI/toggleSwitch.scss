@@ -1,0 +1,45 @@
+*{all: unset;}
+$toggle_padding: 3px;
+
+.toggle {
+  border-radius: calc($rad_btn_border_large + $toggle_padding);
+  padding: $toggle_padding;
+}
+
+eventbox.toggle {
+  padding: $toggle_padding;
+  background-color: $bg_main_light;
+  border-radius: calc($rad_btn_border_large + $toggle_padding);
+}
+
+.indicator.toggle-on {
+  background-color: $sys_col_green_l;
+  color: $sys_col_green_d;
+}
+
+.indicator.toggle-off {
+  background-color: $sys_col_red_l;
+  color: $sys_col_red_d;
+}
+
+.toggle-on {
+  border-radius: $rad_btn_border_large $rad_btn_border_small $rad_btn_border_small  $rad_btn_border_large;
+}
+
+.toggle-off {
+  border-radius: $rad_btn_border_small $rad_btn_border_large $rad_btn_border_large $rad_btn_border_small;
+}
+
+.switch {
+  background-color: $bg_main_light;
+  padding: $toggle_padding;
+  border-radius: calc($rad_btn_border_large + $toggle-padding);
+}
+
+.handle {
+  .icon {
+    color: $bg_main;
+  }
+  padding: $toggle_padding;
+  color: $bg_main;
+}

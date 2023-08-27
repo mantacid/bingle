@@ -1,0 +1,47 @@
+(defwidget toggleSwitch [stateVar size]
+  (eventbox :class "toggle"
+  :hexpand false
+  :vexpand false
+  :halign "center"
+  :valign "center"
+            :onclick {stateVar ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update toggletest=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update toggletest=true"}
+
+    (box :class "switch"
+         :orientation "h"
+         :hexpand false
+         :halign "center"
+         :valign "center"
+         :active true
+         :vexpand false
+         :width {2 * size}
+         :height size
+         :space-evenly false
+      (revealer :class "indicator toggle-on"
+                :reveal stateVar
+                :transition "slideleft"
+                :duration "125ms"
+                :vexpand false
+        (icon :name "checkbox-checked-symbolic"
+              :class "indicator toggle-on"
+        )
+      )
+      (box :class "handle {stateVar ? 'toggle-on' : 'toggle-off'}"
+        (icon :name {stateVar ? 'checkbox-symbolic' : 'checkbox-symbolic'}
+              :class "{stateVar ? 'toggle-on' : 'toggle-off'}"
+        )
+      )
+      (revealer :class "indicator toggle-off"
+                :reveal {!stateVar}
+                :transition "slideright"
+                :duration "125ms"
+                :vexpand false
+        (icon :name "checkbox-symbolic"
+              :class "indicator toggle-off"
+        )
+      )
+    )
+  )
+)
+
+(defvar toggletest false)
+
