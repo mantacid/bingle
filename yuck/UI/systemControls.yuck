@@ -1,0 +1,35 @@
+(defvar showBatteryMenu true)
+(defwidget batteryIcon [menuState ?displayType]
+  (box :orientation "v"
+       :space-evenly false
+       :class "${displayType}"
+    ;(revealer :class ""
+              ;:reveal menuState
+              ;:transition "slideup"
+              ;:duration "125ms"
+      ;(box :class ""
+           ;:orientation "v"
+           ;:hexpand true
+           ;:vexpand true
+      ;)
+    ;)
+    (eventbox :class "dock-item status"
+              :hexpand false
+              :halign "center"
+
+      ;;;;;--EVENTS--;;;;;
+              ;:onclick ""
+              ;:onrightclick ""
+              ;:onmiddleclick ""
+              ;:onhover ""
+              ;:onhoverlost ""
+              ;:dragtype ""
+              ;:dragvalue ""
+              ;:ondropped ""
+
+              :cursor "pointer"
+              :tooltip "Battery: ${EWW_BATTERY.BAT0.status} (${EWW_BATTERY.BAT0.capacity}%)"
+      (icon :name "battery-level-${round(EWW_BATTERY.BAT0.capacity / 100, 1) * 100}-symbolic")
+    )
+  )
+)

@@ -1,0 +1,15 @@
+*{all: unset;}
+
+.status {
+  .icon {
+    margin: unset;
+    margin: 5px;
+  }
+  margin: 0px;
+}
+
+.status:hover,.status:active {
+  @extend button;
+  border-radius: $rad_btn_border_large;
+}
+

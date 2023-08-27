@@ -6,6 +6,7 @@
 (include "yuck/UI/dock.yuck")
 (include "yuck/UI/icon.yuck")
 (include "yuck/UI/menuStart.yuck")
+(include "yuck/UI/systemControls.yuck")
 (include "yuck/UI/topMenu.yuck")
 (include "yuck/UI/winControls.yuck")
 (include "yuck/UI/winTab.yuck")

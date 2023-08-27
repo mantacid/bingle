@@ -28,6 +28,9 @@ Acts as an index for all other stylesheets in this directory.
 ## `menuStart.scss`
 Styles the start menu.
 
+## `systemControl.scss`
+Styles the icons and menus of the system tray items.
+
 ## `winControls.scss`
 Styles the window control buttons.
 

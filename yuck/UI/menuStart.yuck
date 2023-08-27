@@ -63,7 +63,8 @@
             :duration "125ms"
             :active true
     (eventbox :active true
-              :onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false"
+              ;:onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false"
+              :onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} close MENU_START"
               :halign "center"
       (box :class "menu start"
            :hexpand true
@@ -113,7 +114,7 @@
                       :stacking "bg"
                       :focusable true
                       :geometry (geometry :x "0%"
-                                          :y {-1 * (40 + 20)} ;; 40px is the height of the dock, not including any interior padding
+                                          :y {-1 * (40 + 30)} ;; 40px is the height of the dock, not including any interior padding
                                           :width "55%"
                                           :height "70%"
                                           :anchor "bottom center"

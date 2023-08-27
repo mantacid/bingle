@@ -22,6 +22,9 @@ Acts as an index for all other yuck files in this directory.
 ## `menuStart.yuck`
 Defines subwidgets and layouts of the start menu.
 
+## `systemControls.yuck`
+Defines things you'd find in the system tray (along with their corresponding menus)
+
 ## `winControls.yuck`
 Defines the window control buttons.
 

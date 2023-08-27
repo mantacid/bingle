@@ -30,6 +30,7 @@
     ;(winControls :isMaximized false)
 
     (appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
+
 )
 
 ;; TAB AND WINDOW BUTTON HEIGHT: 20px

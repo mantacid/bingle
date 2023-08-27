@@ -11,9 +11,12 @@
               :onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=true"}
               ;:onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false"
               :width btnHeight
+              :height btnHeight
               :hexpand true
               :vexpand true
               :active true
+              :cursor "pointer"
+              :tooltip "Search"
       (box :hexpand true
            :space-evenly false
         (icon :name "system-search-symbolic"
@@ -35,6 +38,32 @@
   )
 )
 
+(defwidget btnStart [showState btnHeight]
+  (eventbox :class "dock-item start menuOpt"
+            :width btnHeight
+            :height btnHeight
+            :hexpand true
+            :vexpand true
+            :active true
+            :cursor "pointer"
+            :tooltip "Start"
+    ;;;;;--EVENTS--;;;;;
+    ;;first onclick event commented out until winndows get clickthrough
+              ;:onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=true"}
+              :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} open MENU_START --toggle"
+              ;:onrightclick ""
+              ;:onmiddleclick ""
+              ;:onhover ""
+              ;:onhoverlost ""
+              ;:dragtype ""
+              ;:dragvalue ""
+              ;:ondropped ""
+    (icon :name "distributor-logo-archlinux"
+          :hexpand true
+    )
+  )
+)
+
 (defwidget dockMenuBtns [showL showC ?showR btnHeight]
   (box :class "dock"
        :orientation "h"
@@ -46,7 +75,7 @@
        :valign "fill"
        :active true
     (btnSearch :showState showL :btnHeight btnHeight)
-    (children :nth 0)
+    (btnStart :showState showC :btnHeight btnHeight)
     (children :nth 1)
   )
 
@@ -96,9 +125,9 @@
        :space-evenly false
        :valign "end"
     ;;;--POPUP MENUS GO HERE IF/WHEN WINDOWS GAIN A CLICKTHROUGH ATTRIBUTE--;;;
-    (menuStart :class "menu start"
-               :showState startShowState
-    )
+    ;(menuStart :class "menu start"
+    ;           :showState startShowState
+    ;)
     ;;;--CHILDREN--;;;
     (box :orientation "h"
          :space-evenly "false"
@@ -107,10 +136,11 @@
       (dockMenuBtns :showL searchShowState
                     :showC startShowState
                     :btnHeight DOCK_H
-        (button :onclick {startShowState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=true"} ":3") ;;temporary
       )
       (infoBar)
-      (sysTray)
+      (sysTray
+        (batteryIcon :menuState showBatteryMenu)
+      )
     )
   )
 )
