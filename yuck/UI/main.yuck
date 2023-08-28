@@ -1,5 +1,4 @@
 (include "yuck/UI/appIcon.yuck")
-(include "yuck/UI/bar.yuck")
 (include "yuck/UI/bingleWindow.yuck")
 (include "yuck/UI/context.yuck")
 (include "yuck/UI/desktop.yuck")

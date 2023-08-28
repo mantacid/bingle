@@ -45,7 +45,7 @@ ${search(jq(arg, "keys[0]"), argname_regex)[0]}=false'
     ;(winControls :isMaximized false)
 
     ;(appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
-    ;(toggleSwitch :stateVar toggletest :size "15px")
+    (toggleSwitch :stateVar toggletest :size "15px")
     ;(test :arg VAR)
 
 )

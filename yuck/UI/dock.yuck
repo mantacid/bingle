@@ -1,3 +1,5 @@
+(defpoll menu_start_revealer_wait :interval "100000s" `sleep 0.1`)
+
 (defwidget btnSearch [showState btnHeight]
   (box :class ""
        :orientation "h"
@@ -150,11 +152,11 @@
                 :wm-ignore false
                 :focusable true
                 :reserve (struts :distance "10px" :side "top")
-                :geometry (geometry :width "99%"
+                :geometry (geometry :width "75%"
                                     :height "40px" ;;hardcoded because windows can't parse variables apparently.
-                                    :x "0.5%"
+                                    :x "0%"
                                     :y "-10px"
-                                    :anchor "bottom left"
+                                    :anchor "bottom center"
                           )
   (dock :searchShowState isSearchExpanded
         :startShowState isStartExpanded

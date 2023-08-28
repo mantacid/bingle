@@ -65,11 +65,11 @@
     (eventbox :active true
               ;:onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false"
               :onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} close MENU_START"
-              :halign "center"
+              :halign "fill"
       (box :class "menu start"
            :hexpand true
            :vexpand true
-           :halign "center"
+           :halign "fill"
            :orientation "v"
            :space-evenly false
            :spacing "5px"
@@ -111,11 +111,11 @@
 ;; might get rid of this if i can include the start menu with the dock file
 (defwindow MENU_START :windowtype "dock"
                       :wm-ignore false
-                      :stacking "bg"
+                      :stacking "fg"
                       :focusable true
                       :geometry (geometry :x "0%"
                                           :y {-1 * (40 + 30)} ;; 40px is the height of the dock, not including any interior padding
-                                          :width "55%"
+                                          :width "60%"
                                           :height "70%"
                                           :anchor "bottom center"
                                 )

@@ -9,6 +9,9 @@
   margin-top: 10px;
   margin-right: 5px;
   margin-left: 5px;
+  background-color: $bg_main;
+  border-radius: $rad_win_border_large;
+  padding: 3px;
 }
 
 .dock-item {
@@ -36,7 +39,7 @@
 
 .dock:first-child {
   margin-right: 5px;
-  margin-left: 5px;
+  margin-left: 0px;
 }
 
 .dock:last-child {
