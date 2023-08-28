@@ -1,4 +1,3 @@
-(defpoll menu_start_revealer_wait :interval "100000s" `sleep 0.1`)
 
 (defwidget btnSearch [showState btnHeight]
   (box :class ""
