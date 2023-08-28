@@ -1,5 +1,5 @@
 
-(defwidget btnSearch [showState btnHeight]
+(defwidget btnSearch [showState NAMEshowState btnHeight]
   (box :class ""
        :orientation "h"
        :space-evenly false
@@ -9,7 +9,7 @@
        :width "300px"
        :hexpand true
     (eventbox :class "dock-item ${showState ? 'search_toggled' : 'search_dormant'}"
-              :onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=true"}
+              :onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${NAMEshowState}=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${NAMEshowState}=true"}
               ;:onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false"
               :width btnHeight
               :height btnHeight
@@ -39,7 +39,7 @@
   )
 )
 
-(defwidget btnStart [showState btnHeight]
+(defwidget btnStart [showState NAMEshowState btnHeight]
   (eventbox :class "dock-item start menuOpt"
             :width btnHeight
             :height btnHeight
@@ -50,7 +50,7 @@
             :tooltip "Start"
     ;;;;;--EVENTS--;;;;;
     ;;first onclick event commented out until winndows get clickthrough
-              ;:onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isStartExpanded=true"}
+              ;:onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${NAMEshowState}=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${NAMEshowState}=true"}
               :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} open MENU_START --toggle"
               ;:onrightclick ""
               ;:onmiddleclick ""
@@ -65,7 +65,7 @@
   )
 )
 
-(defwidget dockMenuBtns [showL showC ?showR btnHeight]
+(defwidget dockMenuBtns [showL NAMEshowL showC NAMEshowC ?showR ?NAMEshowR btnHeight]
   (box :class "dock"
        :orientation "h"
        :space-evenly false
@@ -75,9 +75,9 @@
        :vexpand true
        :valign "fill"
        :active true
-    (btnSearch :showState showL :btnHeight btnHeight)
-    (btnStart :showState showC :btnHeight btnHeight)
-    (children :nth 1)
+    (btnSearch :showState showL :NAMEshowState NAMEshowL :btnHeight btnHeight)
+    (btnStart :showState showC :NAMEshowState NAMEshowC :btnHeight btnHeight)
+    (children :nth 0)
   )
 
 )
@@ -120,7 +120,7 @@
 )
 
 ;;main dock definition. we NEED a clickthrough flag!
-(defwidget dock [searchShowState startShowState btnHeight]
+(defwidget dock [searchShowState NAMEsearchShowState startShowState NAMEstartShowState btnHeight]
   (box :class ""
        :orientation "v"
        :space-evenly false
@@ -135,12 +135,14 @@
          :spacing "5px"
       (taskBar)
       (dockMenuBtns :showL searchShowState
+                    :NAMEshowL NAMEsearchShowState
                     :showC startShowState
+                    :NAMEshowC NAMEstartShowState
                     :btnHeight DOCK_H
       )
       (infoBar)
       (sysTray
-        (batteryIcon :menuState showBatteryMenu)
+        (batteryIcon :menuState showBatteryMenu :menuStateName "showBatteryMenu")
       )
     )
   )
@@ -158,7 +160,9 @@
                                     :anchor "bottom center"
                           )
   (dock :searchShowState isSearchExpanded
+        :NAMEsearchShowState "isSearchExpanded"
         :startShowState isStartExpanded
+        :NAMEstartShowState "isStartExpanded"
         :btnHeight DOCK_H
   )
 )
