@@ -4,7 +4,7 @@
 (include "yuck/util/TABUUID.yuck")
 
 ;; INCLUDE YUCK THAT IMPORTS DYNAMIC WINDOW DEFINITIONS
-(include "tmp/schmoove-pointers.yuck")
+(include "yuck/util/schmoove-pointers.yuck")
 
 ;; INCLUDE YUCK THAT DEFINES BASIC UI ELEMENTS
 (include "yuck/UI/main.yuck")
