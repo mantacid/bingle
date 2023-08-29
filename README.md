@@ -28,8 +28,5 @@ Contains helpful scripts and utilities.
 ## `scss/`
 Contains stylesheets.
 
-## `tmp/`
-Will be used to store window data. Currently Unimplemented.
-
 ## `yuck/`
 Contains yuck to render the UI and applications.

@@ -8,6 +8,24 @@
 BINGLE_CONF_DIR="$HOME/github/bingle"
 
 #######################################################################################
+## bingle_init()
+## initializes the temp direcotry where bingle window data will be stored
+## takes no arguments
+## returns nothing, but sets the global variable
+## CALL ONLY ONCE PER SESSION
+bingle_init() {
+  ## check if a bingle temp dir already exists, set the value of $tmpDir if it does (as that would indicate a session that has already been initialized). if not, create a new temp dir.
+  recovery_check="$(ls -d /tmp/* | grep /bingle_)"
+  if ["$recovery_check" = ""];
+  then
+    declare -g tmpDir=$(mktemp -d /tmp/bingle_XXXXXXXX)
+  else
+    declare -g tmpDir="$recovery_check"
+  fi
+  echo $tmpDir
+}
+
+#######################################################################################
 ## get-temp-dir()
 ## a small function to print the location of the temporary directory in which the working files will be placed.
 ## Takes no arguments.
@@ -64,7 +82,7 @@ window-open() {
   ## winUUID is an identifying value to name the eww window and its associated files.
   winUUID=$(uuidgen)
   ## winDir points to the directory associated with this window.
-  winDir="$(get-temp-dir)$winUUID"
+  #winDir="$(get-temp-dir)$winUUID"
   ## winBASE points to a file containing a winndow definition template, the content of which gets added to the file def.yuck inside the window directory.
   winBASE="$BINGLE_CONF_DIR/yuck/util/winDef.yuck"
 
@@ -75,8 +93,8 @@ window-open() {
   winPos="${winX}x${winY}"
   winSiz="${winW}x${winH}"
 
-  ##initialize the temporary directory
-  mkdir $winDir
+  ##initialize the temporary directory for the window
+  winDir=$(mktemp -d $tmpDir/XXXXXXXX)
 
   ## create and populate the window definition
   cat $winBASE > $winDir/def.yuck
@@ -94,7 +112,7 @@ window-open() {
   pointerYuck=$BINGLE_CONF_DIR/yuck/util/winPointer.yuck
 
   ## format the contents of this new file
-  echo $(sed "s|WINUUID|$winUUID|g" $pointerYuck) >> $(get-temp-dir)schmoove-pointers.yuck
+  echo $(sed "s|WINDIR|$winDir|g" $pointerYuck) >> $BINGLE_CONF_DIR/yuck/util/schmoove-pointers.yuck
 
   ## create and initialize the json that stores the window's tabs. this file will get written to when tab changes occur on that window.
   cat $winBaseJson > $winDir/tabs.json
@@ -156,6 +174,6 @@ window-close() {
 }
 
 ## MAIN CALL, FOR DEBUG PURPOSES ONLY
+bingle_init
 window-open "" 100 50 400 300
-
 
