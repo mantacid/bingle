@@ -1,0 +1,93 @@
+(defwidget authDialog [?PID ?CMD ?USR]
+  (box :class "dialog"
+       :orientation "v"
+       :space-evenly false
+       :spacing "5px"
+       :vexpand true
+       :valign "fill"
+    (box :class "dialog message"
+         :orientation "v"
+         :space-evenly false
+         :valign "start"
+      (label :class "dialogue title"
+             :text "Authentication Required"
+      )
+      (label :class "dialog detail"
+             :text "The Process:"
+      )
+      (label :class "dialog info"
+             :text "PROCESS (PID: ${PID})"
+      )
+      (label :class "dialog detail"
+             :text "running the command:"
+      )
+      (label :class "dialog info codeblock"
+             :text "${CMD}"
+      )
+      (label :class "dialog detail"
+             :text "is requesting authentication for priveledge elevation to $USR.\\nOnly authenticate if you trust this process."
+             :justify "center"
+      )
+    )
+
+    (box :class "password"
+         :orientation "h"
+         :space-evenly false
+         :valign "center"
+         :width "80%"
+         :hexpand false
+
+      (icon :name "dialog-password-symbolic")
+      (input :class ""
+             :cursor "caret"
+             :password true
+             :halign "fill"
+             :hexpand true
+             :width "100%"
+      )
+    )
+
+    (box :class "confirm"
+         :orientation "h"
+         :space-evenly true
+         :spacing ""
+         :halign "fill"
+         :hexpand false
+         :valign "end"
+
+      (button :class "affirmative"
+              :onclick ""
+              :halign "center"
+        (box :orientation "h"
+             :space-evenly false
+             :halign "fill"
+          (icon :name "emblem-ok-symbolic" :halign "start")
+          (label :class "affirmative" :text "CONFIRM" :halign "center")
+        )
+      )
+
+      (button :class "negative"
+              :onclick ""
+              :halign "center"
+        (box :orientation "h"
+             :space-evenly false
+             :halign "end"
+          (icon :name "process-stop-symbolic" :halign "start")
+          (label :class "negative" :text "CANCEL")
+        )
+      )
+    )
+  )
+)
+
+(defwindow DIALOG_AUTH :windowtype "dialog"
+                       :geometry (geometry :x "0%"
+                                           :y "0%"
+                                           :width "40%"
+                                           :height "35%"
+                                           :anchor "center center"
+                                 )
+                       :wm-ignore false
+                       :focusable true
+  (authDialog)
+)

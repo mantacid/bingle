@@ -1,0 +1,38 @@
+*{all: unset;}
+
+.dialog {
+  .message {
+    padding: unset;
+    font-size: 20px;
+  }
+  .info {
+    padding: unset;
+    font-size: 14px;
+    color: $col_acc;
+  }
+  .info.codeblock {
+    padding: 4px;
+    font-size: 14px;
+    background-color: $bg_main_dark;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border-radius: $rad_win_border_large;
+  }
+  .detail {
+    color: $txt;
+  }
+  .password {
+    padding: 4px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 8px;
+    background-color: $bg_main_dark;
+    border-radius: $rad_win_border_large;
+  }
+  background-color: $bg_main;
+  color: $txt;
+  border-radius: $rad_win_border_large;
+  padding: $win_padding;
+}

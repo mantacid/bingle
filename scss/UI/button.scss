@@ -5,6 +5,7 @@ button {
   margin-left: 1px;
   margin-right: 1px;
   padding: 2px;
+  background-color: $btn_bg;
 }
 
 button:hover {
@@ -37,3 +38,16 @@ button:active {
   transition-property: background-color;
 }
 
+.affirmative {
+  .icon {
+    color: $sys_col_green_l;
+  }
+  color: $sys_col_green_l;
+}
+
+.negative {
+  .icon {
+    color: $sys_col_red_l;
+  }
+  color: $sys_col_red_l;
+}
