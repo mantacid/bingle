@@ -7,7 +7,7 @@
   transition-timing-function: linear;
   transition-duration: 0s;
 }
-
+/*Use of anim-flash is discouraged for photosensitivity reasons, and will be removed soon. Use anim-pulse instead*/
 @mixin anim-flash($col1, $col2) {
   @keyframes anim-flash {
     0.000% {color: $col1;}
@@ -20,4 +20,20 @@
   animation-name: anim-flash;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
+}
+
+@mixin anim-pulse($col1 $col2 $property) {
+  @keyframes anim-pulse {
+    0%,
+    50%,
+    100% {
+      #{$property}: $col1;
+    }
+
+    25%,
+    75% {
+      #{$property}: $col2;
+    }
+  }
+  animation: anim-pulse 2.5s cubic-bezier(0.83,0,0.17,1) 0s infinite normal none;
 }
