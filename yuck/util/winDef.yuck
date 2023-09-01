@@ -1,1 +1,2 @@
+;; using polling variable until I can set up something more elegant
 (defpoll WINUUID_tabs :initial '' :interval '10ms' `cat WINDIR/tabs.json`)(defwindow WINDOW :geometry (geometry :anchor 'top left') :wm-ingore false :stacking 'bg' :windowtype 'normal' (winBingle :winUUID 'WINUUID' :winX 'WINX' :winY 'WINY' :winW 'WINW' winH 'WINH'))

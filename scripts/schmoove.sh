@@ -12,62 +12,50 @@ BINGLE_CONF_DIR="$HOME/github/bingle"
 ## initializes the temp direcotry where bingle window data will be stored
 ## takes no arguments
 ## returns nothing, but sets the global variable
-## CALL ONLY ONCE PER SESSION
-bingle_init() {
+## IF CALLED MULTIPLE TIMES, WILL NOT OVERWRITE CURRENT SESSION'S DATA
+bingle-init() {
   ## check if a bingle temp dir already exists, set the value of $tmpDir if it does (as that would indicate a session that has already been initialized). if not, create a new temp dir.
   recovery_check="$(ls -d /tmp/* | grep /bingle_)"
-  if ["$recovery_check" = ""];
+  if [ "$recovery_check" = "" ];
   then
     declare -g tmpDir=$(mktemp -d /tmp/bingle_XXXXXXXX)
   else
     declare -g tmpDir="$recovery_check"
   fi
-  echo $tmpDir
-}
-
-#######################################################################################
-## get-temp-dir()
-## a small function to print the location of the temporary directory in which the working files will be placed.
-## Takes no arguments.
-## Returns the path to the temporary directory.
-
-get-temp-dir() {
-  echo $(echo "$(pwd)" | sed 's/scripts/tmp\//g')
+  #echo $tmpDir
 }
 
 #######################################################################################
 ## tab-add()
 ## handler function to create tabs with UUIDs and associate them to windows.
-## Takes in a window UUID, the yuck associated with the tab, the label to give the tab, and the icon to show on the tab, if the styles permit it.
+## Takes in the name of the window directory, the window UUID (might remove this later), the yuck associated with the tab, the label to give the tab, and the icon to show on the tab, if the styles permit it.
 ## Returns the tab's UUID
 ## WIP!
 
 tab-add() {
   ## define local variables
-  baseJSON="{uuid: 'TABUUID', name: 'LABEL', icon: 'ICON', content: 'CONTENT'}"
+  baseJSONPath="$BINGLE_CONF_DIR/yuck/util/tabTemplate.json"
   tabUUID=$(uuidgen)
-
+  baseJSON=$(cat $baseJSONPath)
   ## define names for arguments
-  winUUID="$1"
-  appYuck="$2"
-  tabLabl="$3"
-  tabIcon="$4"
+  winDir="$1"
+  winUUID="$2"
+  tabCont="$3"
+  tabLabl="$4"
+  tabIcon="$5"
 
-  winDir="$(get_temp_dir)$winUUID"
+  ##winDir="$(get_temp_dir)$winUUID"
   winTabs="${winDir}/tabs.json"
 
-  ## generate the tab json. This will be inserted into the window's tab list. tabs appear in an order defined by their index in the list.
-  tabJSON=$(echo $(echo $(echo $(echo $baseJSON | sed "s/TABUUID/$tabUUID/g") | sed "s/LABEL/$tabLabl/g") | sed "s/ICON/$tabIcon/g") | sed "s/CONTENT/$appYuck/g")
-
   ## find the window JSON file, use python implementation to populate the tab array.
-  newJSON=$(python json-handler.py $(echo "$winTabs $tabJSON" $(cat $winTabs)))
+  python tab-add.py $winDir "$BINGLE_CONF_DIR/yuck/util/tabTemplate.json" $tabUUID $tabLabl $tabIcon
 }
 
 #######################################################################################
 ## window-open()
 ## A handler function to open windows & associate UUIDs with them.
 ## Takes in first tab as arguments, as well as window position and size.
-## Returns the window UUID
+## Returns the window directory
 ## WIP!
 
 window-open() {
@@ -129,7 +117,7 @@ window-open() {
   ## once the tab is created, update the last-focused-tab variable to focus the new tab. This will trigger the content to render in the parent window.
 
   ## return the new window UUID
-  echo $winUUID
+  echo $winDir
 }
 
 #######################################################################################
@@ -173,7 +161,9 @@ window-close() {
   eww -c $BINGLE_CONF_DIR close $winUUID
 }
 
-## MAIN CALL, FOR DEBUG PURPOSES ONLY
-bingle_init
-window-open "" 100 50 400 300
 
+
+## MAIN CALL, FOR DEBUG PURPOSES ONLY
+bingle-init
+test_win=$(window-open "testYuck" 100 50 400 300)
+tab-add $test_win $(uuidgen) "testYuck" "testing" "process-stop-symbolic"
