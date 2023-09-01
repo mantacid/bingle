@@ -8,7 +8,8 @@
     (box :class "dialog message"
          :orientation "v"
          :space-evenly false
-         :valign "start"
+         :valign "center"
+         :vexpand true
       (label :class "dialogue title"
              :text "Authentication Required"
       )
@@ -25,7 +26,7 @@
              :text "${CMD}"
       )
       (label :class "dialog detail"
-             :text "is requesting authentication for priveledge elevation to $USR.\\nOnly authenticate if you trust this process."
+             :text "is requesting authentication for privelege elevation to $USR.\\nOnly authenticate if you trust this process."
              :justify "center"
       )
     )
@@ -34,14 +35,16 @@
          :orientation "h"
          :space-evenly false
          :valign "center"
+         :vexpand true
          :width "80%"
-         :hexpand false
+         :hexpand true
 
       (icon :name "dialog-password-symbolic")
       (input :class ""
              :cursor "caret"
              :password true
              :halign "fill"
+             :valign "fill"
              :hexpand true
              :width "100%"
       )
@@ -83,8 +86,8 @@
 (defwindow DIALOG_AUTH :windowtype "dialog"
                        :geometry (geometry :x "0%"
                                            :y "0%"
-                                           :width "40%"
-                                           :height "35%"
+                                           :width "30%"
+                                           :height "25%"
                                            :anchor "center center"
                                  )
                        :wm-ignore false

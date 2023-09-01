@@ -1,9 +1,10 @@
 *{all: unset;}
 
 .dialog {
-  .message {
+  .title {
     padding: unset;
     font-size: 20px;
+    font-weight: 600;
   }
   .info {
     padding: unset;
@@ -24,7 +25,7 @@
     color: $txt;
   }
   .password {
-    padding: 4px;
+    padding: 10px;
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 8px;
@@ -35,4 +36,15 @@
   color: $txt;
   border-radius: $rad_win_border_large;
   padding: $win_padding;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.confirm {
+  button {
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  margin-bottom: $win_padding;
 }
