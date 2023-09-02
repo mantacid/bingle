@@ -13,6 +13,9 @@ Styles the context menu.
 ## `desktop.scss`
 styles the root window of the desktop.
 
+## `dialog_Auth.scss`
+Styles the auth popup.
+
 ## `dock.scss`
 Styles the dock and its built-in elements. This file does not style widgets.
 
