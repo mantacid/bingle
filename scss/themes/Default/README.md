@@ -16,5 +16,5 @@ Defines the shapes and layouts of UI elements.
 ## `icon.scss`
 Defines styles and special colors of icons. Also sets the `-gtk-icon-theme` property.
 
-## `main.scss`
+## `manifest.scss`
 Acts as an index for all other stylesheets, allowing the theme to be `@import`ed with a single statement.

@@ -7,24 +7,10 @@
 (include "yuck/util/schmoove-pointers.yuck")
 
 ;; INCLUDE YUCK THAT DEFINES BASIC UI ELEMENTS
-(include "yuck/UI/main.yuck")
+(include "yuck/UI/manifest.yuck")
 
 ;; INCLUDE MAIN CONFIG FILE, WHICH POINTS TO ALL (SYSTEM) SUBCONFIGS.
-(include "conf/main.yuck")
-
-(defvar VAR '{"VAR": "true"}')
-(defvar argname_regex '\"[.]+\"')
-
-(defwidget test [arg]
-    (box
-        (button :onclick 'eww update
-
-${search(jq(arg, "keys[0]"), argname_regex)[0]}=false'
-
-"${match(jq(arg, "keys[0]"), '')}")
-    )
-
-)
+(include "conf/manifest.yuck")
 
 (defwindow tester :geometry (geometry :x "50%"
                                       :y "50%"
@@ -45,8 +31,7 @@ ${search(jq(arg, "keys[0]"), argname_regex)[0]}=false'
     ;(winControls :isMaximized false)
 
     ;(appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
-    (toggleSwitch :stateVar toggletest :size "15px")
-    ;(test :arg VAR)
+    (toggleSwitch :stateVar toggletest :size "15px" :inactive true)
 
 )
 

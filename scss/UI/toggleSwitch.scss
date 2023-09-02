@@ -1,4 +1,7 @@
-*{all: unset;}
+*{
+  all: unset;
+}
+
 $toggle_padding: 3px;
 
 .toggle {
@@ -42,4 +45,8 @@ eventbox.toggle {
   }
   padding: $toggle_padding;
   color: $bg_main;
+}
+
+.disabled {
+  border: 1px solid white;
 }

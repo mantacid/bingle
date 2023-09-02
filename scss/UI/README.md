@@ -25,7 +25,7 @@ Handles icon stylings.
 ## `input.scss`
 Styles input fields.
 
-## `main.scss`
+## `manifest.scss`
 Acts as an index for all other stylesheets in this directory.
 
 ## `menuStart.scss`

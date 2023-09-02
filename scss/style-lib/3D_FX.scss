@@ -1,5 +1,5 @@
 /*raise or inset an area, similar to how windows XP did it, but with CSS.*/
-@mixin pop_area($dist, $bg, $light, $shade, $intensity, $contrast) {
+@mixin xp_pop_area($dist, $bg, $light, $shade, $intensity, $contrast) {
   /*check the sign of the distance. if it's negative, you'll need to invert the border colors. */
   @if $dist > 0 {
     border-left: $dist solid mix($light, $bg, calc(calc($contrast / 2) * $intensity));

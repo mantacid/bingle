@@ -1,12 +1,13 @@
-(defwidget toggleSwitch [stateVar size]
-  (eventbox :class "toggle"
-  :hexpand false
-  :vexpand false
-  :halign "center"
-  :valign "center"
+(defwidget toggleSwitch [stateVar size ?inactive]
+  (eventbox :class "toggle {{inactive ?: false} ? 'disabled' : ''}"
+            :hexpand false
+            :vexpand false
+            :halign "center"
+            :valign "center"
+            :active {!inactive ?: false}
             :onclick {stateVar ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update toggletest=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update toggletest=true"}
 
-    (box :class "switch"
+    (box :class "switch {{inactive ?: false} ? 'disabled' : ''}"
          :orientation "h"
          :hexpand false
          :halign "center"
@@ -16,32 +17,32 @@
          :width {2 * size}
          :height size
          :space-evenly false
-      (revealer :class "indicator toggle-on"
+      (revealer :class "indicator toggle-on {{inactive ?: false} ? 'disabled' : ''}"
                 :reveal stateVar
                 :transition "slideleft"
                 :duration "125ms"
                 :vexpand false
         (icon :name "checkbox-checked-symbolic"
-              :class "indicator toggle-on"
+              :class "indicator toggle-on {{inactive ?: false} ? 'disabled' : ''}"
         )
       )
-      (box :class "handle {stateVar ? 'toggle-on' : 'toggle-off'}"
-        (icon :name {stateVar ? 'checkbox-symbolic' : 'checkbox-symbolic'}
-              :class "{stateVar ? 'toggle-on' : 'toggle-off'}"
+      (box :class "handle {{inactive ?: false} ? 'disabled' : {stateVar ? 'toggle-on' : 'toggle-off'}}"
+        (icon :name "{stateVar ? 'checkbox-symbolic' : 'checkbox-symbolic'}"
+              :class "{{inactive ?: false} ? 'disabled' : {stateVar ? 'toggle-on' : 'toggle-off'}}"
         )
       )
-      (revealer :class "indicator toggle-off"
+      (revealer :class "indicator toggle-off {{inactive ?: false} ? 'disabled' : ''}"
                 :reveal {!stateVar}
                 :transition "slideright"
                 :duration "125ms"
                 :vexpand false
         (icon :name "checkbox-symbolic"
-              :class "indicator toggle-off"
+              :class "indicator toggle-off {{inactive ?: false} ? 'disabled' : ''}"
         )
       )
     )
   )
 )
 
-(defvar toggletest false)
+(defvar toggletest true)
 

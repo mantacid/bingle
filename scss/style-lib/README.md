@@ -11,3 +11,6 @@ Defines a mixin, `pop_area`, that creates the illusion of a raised/inset area of
 - `$shade` (color): the color to mix in with the base when creating the shadows
 - `$intensity` (percent): how strong the effect should be. A value of 100% will completely replace the base color with the light/shade color, while a value of 0% will produce no effect.
 - `$contrast` (float): dictates the difference between the primary and secondary highlights/shadows (currently this value also affects the intensity; this will change in the future.)
+
+## `manifest.scss`
+Main file to allow for mass import of all other stylesheets in this directory.
