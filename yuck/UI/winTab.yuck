@@ -10,6 +10,7 @@
           ;:onnrightclick ""
           :hexpand false
           :halign "start"
+          :vexpand true
     (icon :name "value-increase-symbolic"
           :halign "start"
           :hexpand false

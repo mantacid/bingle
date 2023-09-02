@@ -22,7 +22,7 @@
   animation-iteration-count: infinite;
 }
 
-@mixin anim-pulse($col1 $col2 $property) {
+@mixin anim-pulse($col1, $col2, $property) {
   @keyframes anim-pulse {
     0%,
     50%,
