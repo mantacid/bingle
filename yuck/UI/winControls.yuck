@@ -2,7 +2,7 @@
 (defvar snapshot "0x0")
 
 ;(include "./yuck/util/mouseLoc.yuck")
-(defwidget winControls [?window isMaximized] ;;isMaximized is a BOOLEAN
+(defwidget winControls [?winUUID isMaximized] ;;isMaximized is a BOOLEAN
   (box :class "winControls"
        :orientation "h"
        :visible true
@@ -24,7 +24,7 @@
             :width "30%"
             :height "7px"
 
-            ;:onclick ""
+            :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} close ${winUUID}"
             ;:onrightclick ""
             ;:onmiddleclick ""
       (icon :name "${isMaximized ? 'window-restore-symbolic' : 'window-maximize-symbolic'}"
