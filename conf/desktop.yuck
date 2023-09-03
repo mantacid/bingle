@@ -6,3 +6,4 @@
 (defvar WP_SCALE "cover")
 
 (defvar DO_INACTIVE_BLUR true)
+(defvar INACTIVE_BLUR_DURATION "1s")

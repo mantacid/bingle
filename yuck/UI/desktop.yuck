@@ -50,5 +50,5 @@
                                     :height "100%"
                                     :anchor "top left"
                           )
-  (desktop :WID BINGLE_ROOT_WIN_NAME :NAME_WID "BINGLE_ROOT_WIN_NAME" :duration-blur "1s")
+  (desktop :WID BINGLE_ROOT_WIN_NAME :NAME_WID "BINGLE_ROOT_WIN_NAME" :duration-blur INACTIVE_BLUR_DURATION)
 )
