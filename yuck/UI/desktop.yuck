@@ -1,6 +1,8 @@
 ;;;;;;;;;; INCLUDE CONFIG ;;;;;;;;;;
 ;;(include "conf/desktop.yuck")
 
+;; {BINGLE_ROOT_WIN_NAME =~ W_FOCUSED_NAME ? "background-image: url('${EWW_CONFIG_DIR}/${WP_PATH}'); background-size: ${WP_SCALE}" : "background-image: url('${EWW_CONFIG_DIR}/${WP_PATH_BLUR}'); background-size: ${WP_SCALE}"}
+
 (defvar sanityCheck "MAN") ;this is to test event hendlers.
 
 (defvar BINGLE_ROOT_WIN_NAME "Eww - DESKTOP")
@@ -18,22 +20,24 @@
 
         ;;--------EVENTS--------;;
         ;; use ${EWW_EXECUTABLE} to invoke eww, NOT ./eww
-            ;:onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update W_FOCUSED_NAME=${NAME_WID}"
+            ;:onclick ""
             :onrightclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update sanityCheck='WHAT THE HECK IS OATMEAL'" ;;use a shell script to send the right options to the context menu (creating a literal with the right arguments to send it the necessary menu options)
             ;:onmiddleclick ""
             ;:onscroll ""
             ;:onhover ""
             ;:onhoverlost ""
-
-    (box :class "wallpaper"
-         :width "100%"
-         :height "100%"
-         :style {BINGLE_ROOT_WIN_NAME =~ W_FOCUSED_NAME ? "background-image: url('${EWW_CONFIG_DIR}/${WP_PATH}'); background-size: ${WP_SCALE}" : "background-image: url('${EWW_CONFIG_DIR}/${WP_PATH_BLUR}'); background-size: ${WP_SCALE}"}
-         :orientation "h"
-         :space-evenly false
-      ;sanityCheck
-
-      (children) ;;Optional, can be used to hide some readouts, trays, widgets, etc.
+    (overlay
+      (box :width "100%" :height "100%" :style "background-image: url('${EWW_CONFIG_DIR}/${WP_PATH_BLUR}'); background-size: ${WP_SCALE}")
+      (revealer :class "wallpaper"
+                :transition "crossfade"
+                :reveal {BINGLE_ROOT_WIN_NAME =~ W_FOCUSED_NAME ? true : false}
+                :duration {duration-blur ?: "500ms"}
+        (box :class "wallpaper"
+             :width "100%"
+             :height "100%"
+             :style "background-image: url('${EWW_CONFIG_DIR}/${WP_PATH}'); background-size: ${WP_SCALE}"
+        )
+      )
     )
   )
 )
@@ -46,5 +50,5 @@
                                     :height "100%"
                                     :anchor "top left"
                           )
-  (desktop :WID BINGLE_ROOT_WIN_NAME :NAME_WID "BINGLE_ROOT_WIN_NAME" :duration-blur "500ms")
+  (desktop :WID BINGLE_ROOT_WIN_NAME :NAME_WID "BINGLE_ROOT_WIN_NAME" :duration-blur "1s")
 )
