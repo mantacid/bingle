@@ -1,0 +1,29 @@
+(defwidget manilla_main [CWD]
+  (box :class ""
+       :orientation "v"
+       :space-evenly false
+       :halign "fill"
+       :valign "fill"
+       :vexpand true
+    (box :class "top"
+         :orientation "h"
+         :space-evenly false
+         :halign "fill"
+         :vexpand false
+      (children :nth 0)      ;; nav
+      (children :nth 1)      ;; breadcrumbs/search
+    )
+    (children :nth 2)        ;; ribbon menu
+    (box :class "main"
+         :orientation "h"
+         :space-evenly false
+         :halign "fill"
+         :valign "fill"
+         :hexpand false
+         :vexpand true
+      (children :nth 3)      ;; places
+      (children :nth 4)      ;; view
+    )
+    (children :nth 5)        ;; bottom
+  )
+)
