@@ -2,4 +2,7 @@
 
 ;; define wallpaper path and scaling
 (defvar WP_PATH "wallpaper.png")
+(defvar WP_PATH_BLUR "wallpaper_blur.png")
 (defvar WP_SCALE "cover")
+
+(defvar DO_INACTIVE_BLUR true)
