@@ -34,7 +34,8 @@
     ;(winControls :isMaximized false)
 
     ;(appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
-    (toggleSwitch :stateVar toggletest :size "15px" :inactive true)
+    ;(toggleSwitch :stateVar toggletest :size "15px" :inactive true)
+    (diskInfo)
     ;(manilla_main :CWD testDir :NAME_CWD "testDir"
     ;    (nav :CWD CWD :NAME_CWD NAME_CWD)
     ;)

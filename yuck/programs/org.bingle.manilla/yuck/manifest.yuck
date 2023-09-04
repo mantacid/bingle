@@ -1,5 +1,6 @@
 ;(include "yuck/programs/org.bingle.manilla/yuck/bottomBar.yuck")
 ;(include "yuck/programs/org.bingle.manilla/yuck/breadcrumbs.yuck")
+(include "yuck/programs/org.bingle.manilla/yuck/diskInfo.yuck")
 (include "yuck/programs/org.bingle.manilla/yuck/manilla.yuck")
 ;(include "yuck/programs/org.bingle.manilla/yuck/nav.yuck")
 (include "yuck/programs/org.bingle.manilla/yuck/places.yuck")

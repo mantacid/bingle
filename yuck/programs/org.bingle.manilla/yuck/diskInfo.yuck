@@ -1,0 +1,14 @@
+(defwidget diskInfo []
+  (box :class "info"
+       :orientation "v"
+       :hexpand false
+       :halign "fill"
+       :valign "center"
+    (progress :class "info disk bar"
+              :value {EWW_DISK["/"].used_perc}
+              :orientation "h"
+    )
+  )
+)
+
+

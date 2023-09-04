@@ -1,0 +1,16 @@
+*{all: unset;}
+progressbar {
+  trough {
+    progress {
+      background-color: $col_acc;
+      min-height: 4px;
+      border-radius: $rad_btn_border_large;
+    }
+    min-width: 8px;
+    background-color: $bg_main_dark;
+    margin: 0px;
+    border-radius: $rad_btn_border_small;
+  }
+  @include xp_pop_area(-5px, $bg_main, $col_light, $col_shade, $shade_intensity, $shade_contrast_multiplier);
+  border-radius: $rad_btn_border_large;
+}

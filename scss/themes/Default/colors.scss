@@ -3,7 +3,7 @@ $bg_main: rgba(41,46,52,1);                            /*#292e34*/
 $bg_main_light: rgba(48,55,62,1);                      /*#30373e*/
 $bg_main_dark: rgba(29,33,36,1);                       /*#1d2124*/
 
-$shade_intensity: 0%;
+$shade_intensity: 6%;
 $shade_contrast_multiplier: 5.0;
 $col_light: rgba(200,196,255,1);                       /*#c8c4ff*/
 $col_shade:rgba(10,17,27);                             /*#0a111b*/
@@ -36,7 +36,7 @@ $tab_bg_opaq: mix(rgb(56,73,81),$bg_main,60%);
 $tab_bg_hov_opaq: mix(rgb(56,73,81),$bg_main,100%);
 $tab_bg_act_opaq: mix(rgb(69,90,100),$bg_main,100%);
 
-$col_acc: rgb(229,73,25);                              /*#e54919*/
+$col_acc: #f86a05;/*#e54919*/
 
 /*define certain system ICON colors such as shutdown, warning, etc. as mixins.*/
 @mixin col_shutdown {
