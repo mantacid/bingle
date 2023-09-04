@@ -1,0 +1,1 @@
+{"ARGS":{"sortMode":"placeholder","sortReverse":false,"showHidden":false},"CMND":"ls -lh1{{ARG.showHidden ?: 'ERROR'}{{ARG.sortReverse ?: 'ERROR'} == true ? 'r' : ''} == true ? 'A' : ''} --sort={ARG.sortMode ?: 'none'} ${CWD}","VARS":{"CWD":"/home/bingle"}}
