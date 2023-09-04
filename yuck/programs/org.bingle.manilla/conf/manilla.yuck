@@ -1,0 +1,1 @@
+(defvar BINGLE_MANILLA_PLACES '[{"labl":"Home","path":"$HOME","icon":"user-home-symbolic"},{"labl":"ROOT","path":"/","icon":"folder-symbolic"},{"labl":"Desktop","path":"$HOME/Desktop","icon":"user-desktop-symbolic"},{"labl":"Downloads","path":"$HOME/Downloads","icon":"folder-download-symbolic"},{"labl":"Documents","path":"$HOME/Documents","icon":"folder-documents-symbolic"}]')

@@ -1,10 +1,15 @@
-(defwidget manilla_main [CWD]
-  (box :class ""
+;; DONT define sort modes and UI options here unless you want them to be global across all instances of the application.
+;; Data specific to app instances (the current working directory of a file manager, for example) should be defined in the json content of the tab associated with the instance.
+
+;;originally planned to allow the manilla_main widget to call children so that elements would be more easily configurable. However, I couldn't pass arguments to them. I'll still try to do that for as many elements of the interface I can.
+(defwidget manilla_main [CWD ?NAME_CWD]
+  (box :class "manilla"
        :orientation "v"
        :space-evenly false
        :halign "fill"
        :valign "fill"
        :vexpand true
+       :hexpand true
     (box :class "top"
          :orientation "h"
          :space-evenly false
@@ -22,8 +27,27 @@
          :hexpand false
          :vexpand true
       (children :nth 3)      ;; places
-      (children :nth 4)      ;; view
+      (manilla_view :CWD "${CWD}" :NAME_CWD NAME_CWD)      ;; view
     )
-    (children :nth 5)        ;; bottom
+    (children :nth 4)        ;; bottom
   )
+)
+
+(defwindow TEST_MANILLA :windowtype "normal"
+                        :wm-ignore false
+                        :stacking "bg"
+                        :geometry (geometry :x "25%"
+                                            :y "25%"
+                                            :width "60%"
+                                            :height "45%"
+                                            :anchor "top left"
+                                  )
+  (manilla_main :CWD "/home/bingle"
+    (box "nav")
+    (box "breadcrumbs")
+    (box "ribbon menu")
+    (places)
+    (box "bottom")
+  )
+
 )

@@ -1,0 +1,63 @@
+*{all: unset;}
+.area {
+  background-color: $bg_main_dark;
+}
+.entry {
+  background-color: transparent;
+  padding: 3px;
+}
+
+.places {
+  :first-child {
+    .place {
+      border-radius: $rad_btn_border_large $rad_btn_border_large $rad_btn_border_small $rad_btn_border_small;
+    }
+  }
+
+  :last-child {
+    .place {
+      border-radius: $rad_btn_border_small $rad_btn_border_small $rad_btn_border_large $rad_btn_border_large;
+    }
+  }
+  padding: 4px;
+}
+
+.place {
+  .icon,label {
+    color: $txt;
+  }
+
+  .icon {
+    padding: 4px;
+  }
+
+  background-color: $btn_bg;
+  padding: 4px;
+  margin-bottom: 4px;
+  color: $txt;
+  border-radius: $rad_btn_border_small;
+}
+
+.entry:hover {
+  .place{
+    @extend button;
+    @include trans-ease-anticipate;
+    transition-property: background-color;
+    background-color: $btn_bg_hov;
+    padding: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.entry:active {
+  .place{
+    @extend button;
+    @include trans-instant;
+    transition-property: background-color;
+    background-color: $btn_bg_act;
+    padding: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

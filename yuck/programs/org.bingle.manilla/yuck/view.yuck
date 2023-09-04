@@ -1,0 +1,9 @@
+(defwidget manilla_view [CWD ?NAME_CWD]
+  (box :class "area view"
+       :orientation "v"
+       :vexpand true
+       :hexpand true
+       :halign "fill"
+    "view" ;;replace with for loop iterating over contents of dir and displaying an eventbox for each location
+  )
+)

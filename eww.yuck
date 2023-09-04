@@ -34,12 +34,14 @@
     ;(winControls :isMaximized false)
 
     ;(appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
-    ;(toggleSwitch :stateVar toggletest :size "15px" :inactive true)
-    (manilla_main :CWD "/home/bingle")
+    (toggleSwitch :stateVar toggletest :size "15px" :inactive true)
+    ;(manilla_main :CWD testDir :NAME_CWD "testDir"
+    ;    (nav :CWD CWD :NAME_CWD NAME_CWD)
+    ;)
 
 )
 
-
+(defvar testDir "/home/bingle/")
 
 ;; TAB AND WINDOW BUTTON HEIGHT: 20px
 ;; WINDOW BUTTON WIDTH: 150px

@@ -2,6 +2,9 @@
 ;(include "yuck/programs/org.bingle.manilla/yuck/breadcrumbs.yuck")
 (include "yuck/programs/org.bingle.manilla/yuck/manilla.yuck")
 ;(include "yuck/programs/org.bingle.manilla/yuck/nav.yuck")
-;(include "yuck/programs/org.bingle.manilla/yuck/places.yuck")
+(include "yuck/programs/org.bingle.manilla/yuck/places.yuck")
 ;(include "yuck/programs/org.bingle.manilla/yuck/ribbonMenu.yuck")
-;(include "yuck/programs/org.bingle.manilla/yuck/view.yuck")
+(include "yuck/programs/org.bingle.manilla/yuck/view.yuck")
+
+;;APP CONFIGS;;
+(include "yuck/programs/org.bingle.manilla/conf/manifest.yuck")

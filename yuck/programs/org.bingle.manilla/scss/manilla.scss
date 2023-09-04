@@ -1,9 +1,18 @@
 *{all: unset;}
+.manilla {
+  background-color: $bg_main;
+  border-radius: $rad_win_border_large;
+  padding: $win_padding;
+}
 
 .main {
-  background-color: $bg_main_dark;
+
 }
 
 .top {
   background-color: $bg_main_light;
+}
+
+.area {
+  border-radius: $rad_win_border_large;
 }

@@ -30,3 +30,6 @@ Contains stylesheets.
 
 ## `yuck/`
 Contains yuck to render the UI and applications.
+
+# NOTES for the DEVS:
+- window content should use a literal that pulls from the json of the active tab, so that app yuck and data can all be transferred at once.
