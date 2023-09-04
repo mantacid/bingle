@@ -1,0 +1,56 @@
+(defwidget placeEntry [name labl icon path]
+  (eventbox :class "entry"
+            :hexpand true
+            :valign "start"
+            :halign "fill"
+            :cursor "pointer"
+            :active true
+            :tooltip path
+        ;;;;;--EVENTS--;;;;;
+            ;:onclick ""
+            ;:onrightclick ""
+            ;:onmiddleclick ""
+            ;:onhover ""
+            ;:onhoverlost ""
+            ;:onscroll ""
+            ;:ondropped ""
+            ;:dragtype ""
+            ;:dragvalue ""
+
+    (box :class "place"
+         :orientation "h"
+         :space-evenly false
+         :spacing "2px"
+         :hexpand true
+         :active true
+         :vexpand false
+      (icon :class "entry"
+            :name icon
+            :vexpand false
+      )
+      (label :class "entry"
+             :text labl
+             :vexpand false
+             :show-truncated true
+             :limit-width 10
+      )
+    )
+  )
+)
+
+(defwidget places []
+  (box :class "area places"
+       :orientation "v"
+       :valign "fill"
+       :vexpand true
+       :space-evenly false
+       :active true
+    (for place in BINGLE_MANILLA_PLACES
+      (placeEntry :name "${place.name}"
+             :labl "${place.labl}"
+             :icon "${place.icon}"
+             :path "${place.path}"
+      )
+    )
+  )
+)
