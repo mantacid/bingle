@@ -1,9 +1,6 @@
 * {all: unset;}
 
 .menu.start {
-}
-
-.start {
   .top {
     margin: $start_menu_padding;
   }
@@ -69,9 +66,9 @@
 
   :active {
     @include trans-instant;
-  background-color: unset;
-  background-color: $btn_bg_act;
-  transition-property: background-color;
+    background-color: unset;
+    background-color: $btn_bg_act;
+    transition-property: background-color;
   }
 
   padding: 2px;

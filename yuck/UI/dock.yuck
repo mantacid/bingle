@@ -1,6 +1,6 @@
 
 (defwidget btnSearch [showState NAMEshowState btnHeight]
-  (box :class ""
+  (box :class "holder"
        :orientation "h"
        :space-evenly false
        :active true
@@ -40,16 +40,18 @@
 )
 
 (defwidget btnStart [showState NAMEshowState btnHeight]
-  (eventbox :class "dock-item start menuOpt"
-            :width btnHeight
-            :height btnHeight
-            :hexpand true
-            :vexpand true
-            :active true
-            :cursor "pointer"
-            :tooltip "Start"
-    ;;;;;--EVENTS--;;;;;
-    ;;first onclick event commented out until winndows get clickthrough
+  (box :class "holder"
+    (eventbox :class "dock-item start menuOpt"
+              :width btnHeight
+              :height btnHeight
+              :hexpand true
+              :vexpand true
+              :active true
+              :cursor "pointer"
+              :tooltip "Start"
+              :valign "fill"
+      ;;;;;--EVENTS--;;;;;
+      ;;first onclick event commented out until winndows get clickthrough
               ;:onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${NAMEshowState}=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${NAMEshowState}=true"}
               :onclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} open MENU_START --toggle"
               ;:onrightclick ""
@@ -59,8 +61,10 @@
               ;:dragtype ""
               ;:dragvalue ""
               ;:ondropped ""
-    (icon :name "distributor-logo-archlinux"
-          :hexpand true
+      (icon :name "distributor-logo-archlinux"
+            :hexpand true
+            :class "start ${showState ? 'start-toggled' : 'start-dormant'}"
+      )
     )
   )
 )

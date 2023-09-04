@@ -2,7 +2,8 @@
 (defwidget batteryIcon [menuState ?displayType]
   (box :orientation "v"
        :space-evenly false
-       :class "${displayType}"
+       :vexpand true
+       :class "status ${displayType}"
     ;(revealer :class ""
               ;:reveal menuState
               ;:transition "slideup"
@@ -16,6 +17,7 @@
     (eventbox :class "dock-item status"
               :hexpand false
               :halign "center"
+              :valign "fill"
 
       ;;;;;--EVENTS--;;;;;
               ;:onclick ""

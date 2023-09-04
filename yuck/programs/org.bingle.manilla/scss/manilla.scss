@@ -1,12 +1,12 @@
 *{all: unset;}
 .manilla {
+  @include xp_pop_area(3px, $bg_main, $col_light, $col_shade, $shade_intensity, $shade_contrast_multiplier);
   background-color: $bg_main;
   border-radius: $rad_win_border_large;
   padding: $win_padding;
 }
 
 .main {
-
 }
 
 .top {
@@ -14,5 +14,6 @@
 }
 
 .area {
+  @include xp_pop_area(-3px, $bg_main_dark, $col_light, $col_shade, $shade_intensity, $shade_contrast_multiplier);
   border-radius: $rad_win_border_large;
 }

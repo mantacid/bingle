@@ -1,11 +1,6 @@
 *{all: unset}
 
 .dock {
-  /*i am a fucking genius*/
-  * {
-    margin-top: 3px;
-    margin-bottom: 3px;
-  }
   margin-top: 10px;
   margin-right: 5px;
   margin-left: 5px;
@@ -18,13 +13,13 @@
   .icon {
     margin-left: 8px;
     margin-right: 8px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 2px;
   }
   .dock-item {
     margin: 3px;
   }
-
   background-color: $btn_bg;
   border-radius: $rad_btn_border_large;
   margin: 1px;
@@ -50,14 +45,43 @@
   background-color: $btn_bg;
 }
 
+.search-dormant:hover {
+  @include trans-ease-anticipate;
+  background-color: $btn_bg_hov;
+}
+
 .search_toggled {
   background-color: $bg_main_dark;
 }
 
 .invis {
   background-color: transparent;
+  border: 1px solid red; /*DEBUG PURPOSES*/
 }
 
-.menuOpt,.start {
+.menuOpt.start {
+  .icon {
+    background-color: unset;
+  }
+  @include trans-ease-anticipate;
   background-color: $btn_bg;
+}
+
+.menuOpt.start:hover {
+  @include trans-ease-anticipate;
+  background-color: $btn_bg_hov;
+}
+
+.menuOpt.start:active {
+  @include trans-instant;
+  background-color: $btn_bg_act;
+}
+
+.holder {
+  padding: 3px;
+  background-color: transparent;
+}
+
+.start {
+  @extend button;
 }
