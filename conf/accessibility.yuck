@@ -1,0 +1,4 @@
+;;; PROMPT TO SET THESE UPON DE SETUP ;;;
+(defvar PREFERS_REDUCED_MOTION false)
+(defvar PREVENT_EYESTRAIN true)
+(defvar HI-CONTRAST-THEME false)
