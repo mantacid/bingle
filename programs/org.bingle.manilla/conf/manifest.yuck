@@ -1,1 +1,1 @@
-(include "yuck/programs/org.bingle.manilla/conf/manilla.yuck")
+(include "programs/org.bingle.manilla/conf/manilla.yuck")
