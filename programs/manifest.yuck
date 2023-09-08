@@ -1,2 +1,2 @@
 ;; when a program is installed, its main.yuck file will get added to this file.
-(include "yuck/programs/org.bingle.manilla/yuck/manifest.yuck")
+(include "programs/org.bingle.manilla/yuck/manifest.yuck")

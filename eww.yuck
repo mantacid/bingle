@@ -13,7 +13,7 @@
 (include "conf/manifest.yuck")
 
 ;; INCLUDE PROGRAM MANIFEST
-(include "yuck/programs/manifest.yuck")
+(include "programs/manifest.yuck")
 
 (defwindow tester :geometry (geometry :x "50%"
                                       :y "50%"

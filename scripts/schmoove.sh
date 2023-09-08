@@ -133,7 +133,6 @@ winUUID="$1"
 tabUUID="$2"
 
 ## local variables
-winDir="$(get-temp-dir)$winUUID"
 
 ## call python implementation to handle the removal of the json list item with the key $tabUUID that is located in the file $winDir/tabs.json
 }
