@@ -27,6 +27,12 @@
     border-radius: $rad_btn_border_large;
   }
 
+  .instance > .context.option {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: $rad_btn_border_small;
+  }
+
 
   .instance:hover {
     .context.option {
@@ -44,7 +50,8 @@
     }
   }
 
-  background-color: $bg_main_light;
+  background-color: $bg_main;
+  border: 2px solid $bg_main_light;
   border-radius: $rad_win_border_large;
   padding: 4px;
 }
@@ -52,4 +59,9 @@
 label.option {
   padding: 3px;
   margin-left: 5px;
+}
+
+.seperator {
+  border-bottom: 1px solid $txt_inactive;
+  padding: 1px;
 }

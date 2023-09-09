@@ -1,20 +1,27 @@
-;;;;; define the menu constructor ;;;;;
-
-(defwidget menu-constructor [menu-yuck]
-  (literal :content menu-yuck)
-)
-
-;;IMPORTANT: WHEN USING THE MENU-CONSTRUCTOR, YOU MUSS PASS A BOX CONTAINING THE YUCK IN MANUALLY. IT DOES NOT WORK ANY OTHER WAY!
-
 ;;;;; define a typical context menu item ;;;;;
 
-(defwidget optionInstance [labl icon ?cmnd ?type]
+(defwidget optionInstance [labl icon ?cmnd ?type yuck]
   (eventbox :class "instance"
             :hexpand true
             :vexpand false
             :halign "fill"
             :valign "start"
             :active true
+
+        ;;;;;-- EVENTS --;;;;;
+            ;:onclick ""
+            ;:onrightclick ""
+            ;:onmiddleclick ""
+
+            ;:onscroll ""
+
+            ;:onhover ""
+            ;:onhoverlost ""
+
+            ;:dragtype ""
+            ;:dragvalue ""
+            ;:ondropped ""
+
     (box :class "context option"
          :orientation "h"
          :space-evenly false
@@ -26,7 +33,24 @@
              :justify "left"
              :text labl
       )
+      ;; RENDER ADDITIONAL YUCK. be sure to define styles for any element that could be in here.
+      (literal :content yuck
+               :halign "end"
+               :valign "center"
+      )
     )
+  )
+)
+
+;; Define a seperator element, for convenience. They will be denoted in the json by a null in place of an object.
+(defwidget seperator []
+  (box :class "seperator"
+       :hexpand true
+       :vexpand false
+       :halign "fill"
+       :valign "fill"
+       :height "1%"
+       :style "border-bottom: 1px solid white;"
   )
 )
 
@@ -40,6 +64,7 @@
   (eventbox :class "context"
             :active true
             :halign "fill"
+            :vexpand true
             :onmiddleclick "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} close CONTEXT" ;;for testing purposes
     (box :class "context menu"
          :orientation "v"
@@ -48,6 +73,7 @@
       (for entry in {cmenuJSON.options ?: "{}"}
         (optionInstance :icon "${entry.icon}"
                         :labl "${entry.labl}"
+                        :yuck "${entry.yuck}"
         )
       )
     )
@@ -62,7 +88,6 @@
                    :geometry (geometry :x "50%"
                                        :y "50%"
                                        :width "200px"
-                                       :height "200px"
                                        :anchor "top left"
                              )
   (mainContext :cmenuJSON cmenuJSON_TEST)
