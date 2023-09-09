@@ -22,6 +22,12 @@ Each directory will have a README file explaining its purpose and contents.
 ## `conf/`
 Contains files used to define the behavior of the system.
 
+## `programs/`
+contains various native BINGLE applications. WIP.
+
+## `res/`
+Contains assets used by the system, such as the wallpaper, BINGLE icon, and others.
+
 ## `scripts/`
 Contains helpful scripts and utilities.
 
