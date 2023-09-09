@@ -1,6 +1,7 @@
-(defwidget icon [name ?class]
+(defwidget icon [name ?class ?visible]
     (image
         :class {"icon ${class}"}
         :style "background-image: -gtk-icontheme('${name}');"
+        :visible {visible ?: true}
     )
 )

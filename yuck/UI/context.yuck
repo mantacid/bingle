@@ -1,12 +1,15 @@
+(defvar cmenuInstanceLiteral '(optionInstance :icon entry.icon :labl entry.labl :yuck entry.yuck)')
+(defvar cmenuSeperatorLiteral '(seperator)')
+
 ;;;;; define a typical context menu item ;;;;;
 
-(defwidget optionInstance [labl icon ?cmnd ?type yuck]
-  (eventbox :class "instance"
+(defwidget optionInstance [labl icon ?cmnd yuck]
+  (eventbox :class {''=~ icon && ''=~ labl && ''=~ yuck ? "instance seperator" : "instance"}
             :hexpand true
             :vexpand false
             :halign "fill"
             :valign "start"
-            :active true
+            :active {''=~ icon && ''=~ labl && ''=~ yuck ? false : true}
 
         ;;;;;-- EVENTS --;;;;;
             ;:onclick ""
@@ -25,32 +28,26 @@
     (box :class "context option"
          :orientation "h"
          :space-evenly false
+
       (icon :class "option"
             :name icon
+            :visible {'' =~ icon ? false : true}
       )
       (label :class "option"
              :yalign 0.5
              :justify "left"
-             :text labl
+             :visible {'' =~ labl ? false : true}
+             :limit-width {'' =~ labl ? 0 : 100}
+             :text {labl ?: ""}
       )
       ;; RENDER ADDITIONAL YUCK. be sure to define styles for any element that could be in here.
       (literal :content yuck
                :halign "end"
                :valign "center"
+               :hexpand true
+               :visible {'' =~ yuck ? false : true}
       )
     )
-  )
-)
-
-;; Define a seperator element, for convenience. They will be denoted in the json by a null in place of an object.
-(defwidget seperator []
-  (box :class "seperator"
-       :hexpand true
-       :vexpand false
-       :halign "fill"
-       :valign "fill"
-       :height "1%"
-       :style "border-bottom: 1px solid white;"
   )
 )
 
@@ -71,15 +68,14 @@
          :space-evenly false
          :hexpand true
       (for entry in {cmenuJSON.options ?: "{}"}
-        (optionInstance :icon "${entry.icon}"
-                        :labl "${entry.labl}"
-                        :yuck "${entry.yuck}"
+        (optionInstance :icon "${entry.icon ?: ''}"
+                        :labl "${entry.labl ?: ''}"
+                        :yuck "${entry.yuck ?: ''}"
         )
       )
     )
   )
 )
-
 
 ;;;;; define the window ;;;;;
 
