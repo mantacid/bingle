@@ -1,0 +1,43 @@
+{
+  "org": {
+    "bingle": {
+      "desktop": {
+        "yuck": {
+          "accessibility": {
+            "bool_prefers-reduced-motion": null
+          },
+          "default-apps": {
+            "str_terminal": "",
+            "str_file-manager": "",
+            "str_text-editor": "",
+            "str_web-browser": ""
+          },
+          "desktop": {
+            "str_wp-path": "res/wallpaper.png",
+            "str_wp-path-blur": "res/wallpaper_blur.png",
+            "bool_wp-blur": true,
+            "str_wp-blur-duration": "1s",
+            "str_wp-scale": "cover"
+          },
+          "dock": {
+            "list_taskbar-apps": [],
+            "str_dock-height": "40px",
+            "str_start-menu-name": "MENU_START"
+          },
+          "user": {
+            "str_profile-image-path": "circle-user.png",
+          }
+        },
+        "scss": {
+          "theme": {
+            "bool_force-theme": true,
+            "str_theme": "Default"
+          }
+        }
+      },
+      "IMPORT": {
+        "path": "programs/org.bingle.manilla/conf/main.json"
+      }
+    }
+  }
+}
