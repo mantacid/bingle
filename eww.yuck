@@ -10,6 +10,7 @@
 (include "yuck/UI/manifest.yuck")
 
 ;; INCLUDE MAIN CONFIG FILE, WHICH POINTS TO ALL (SYSTEM) SUBCONFIGS.
+;; WILL LIKELY BE PHASED OUT SOON
 (include "conf/manifest.yuck")
 
 ;; INCLUDE PROGRAM MANIFEST
