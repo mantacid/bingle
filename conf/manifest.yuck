@@ -6,4 +6,3 @@
 (include "conf/dock.yuck")
 (include "conf/look.yuck")
 (include "conf/system.yuck")
-

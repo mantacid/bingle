@@ -34,9 +34,6 @@
             "str_theme": "Default"
           }
         }
-      },
-      "IMPORT": {
-        "path": "programs/org.bingle.manilla/conf/main.json"
       }
     }
   }

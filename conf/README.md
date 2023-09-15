@@ -33,10 +33,6 @@ for example: assigning a value to `org.bingle.desktop.yuck.str_wp-path` would se
 
 Each key has the expected json datatype for its value prepended to the key's name.
 
-### IMPORT statements
-A key named `"IMPORT"` tells the settings handler to look for an app's json config file at the path provided, and "inject" the json at the position defined by the app's main directory.
-For example, by pointing an `IMPORT` key to the path `programs/org.bingle.manilla/conf/main.json`, the contents of `main.json` will be added under the key `org.bingle.manilla`, as that was the first valid key scheme to be matched by the handler.
-
 ## `main.yuck`
 Index file for all configurations. (may be phased out in favor of a json format.)
 
