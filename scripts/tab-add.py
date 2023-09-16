@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 import json
 import sys
+import tabby
+######################################################################################
 ## ARGUMENTS ##
-#winTabsPATH = sys.argv[1] ## path to window's tabs.json file.
 winPATH = sys.argv[1] + "/" ##path to the window dir
 tabBasePATH = sys.argv[2] ## path to the json template (path)
 tabUUID = sys.argv[3]
@@ -10,6 +11,7 @@ tabLabl = sys.argv[4]
 tabIcon = sys.argv[5]
 #tabCont = sys.argv[6] ## STILL NOT WORKING FOR SOME REASON
 
+######################################################################################
 ## PROCESSING THE DATA ##
 winTabsPATH = winPATH + "tabs.json"
 ## Get python dictionaries from the last two arguments.
@@ -49,3 +51,5 @@ print(winDICT)
 ## Write the new data to the tab json file
 with open(winTabsPATH, 'wt') as tabs:
   tabs.write(json.dumps(winDICT))
+  ## call another function to write the application json data to the tabs.
+  ## use tabby file for this.

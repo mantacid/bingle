@@ -3,6 +3,7 @@
 ## BIngle CONfigurator
 ## Author: Mantacid
 
+import tempfile as tmp
 import sys
 import json
 import re
@@ -10,13 +11,15 @@ from pandas.io.json import json_normalize
 
 #################################################################################
 ## format json string to have no whitespace outside of strings.
-def format(JSON_STR):
+def cleanup(JSON_STR):
   JSON_STR = re.sub(r"\n", "", JSON_STR)
   JSON_STR = re.sub(r"(?<![\[\"\w\d])\s+", "", JSON_STR)
   JSON_STR = re.sub(r"\s}", "", JSON_STR)
 
-  #print(JSON_STR)
-  DICT = json.loads(testStr)
+  temp = tmp.NamedTemporaryFile(delete=False,prefix="bingle")
+  with open(temp.name, 'w') as f:
+    f.write(JSON_STR)
+  DICT = json.load(temp)
   return DICT
 
 #################################################################################
@@ -26,7 +29,7 @@ def parse(JSON_PATH):
   ## OPEN file at JSON_PATH
   with open(JSON_PATH, 'r') as f:
     json_str = f.read()
-    CONF_DICT = format(json_str)
+    CONF_DICT = cleanup(json_str)
   return CONF_DICT
 
 #################################################################################
@@ -38,16 +41,17 @@ def update(DICT, KEY, VAL):
 #################################################################################
 ## internal function. prints full expanded names of keys in dot notation. try to not call this on its own.
 def walk_keys(OBJ):
+  print("OBJ:" + str(type(OBJ)))
   ## make OBJ into a python dict. THIS THING IS DRIVING ME INSANE
   DICT = json.loads(OBJ)
-  #print(DICT)
   ToC = json_normalize(DICT, sep='.')
-  return ToC
+  return ToC ## return list
 
 #################################################################################
 ## Print a list of all expanded keys in file at PATH using dot notation, add output to list defined in LIST
 def trace(PATH, LIST):
   DICT = parse(PATH)
+  #print(type(DICT))
   for s in walk_keys(DICT):
     LIST.append(s)
   return LIST

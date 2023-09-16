@@ -7,10 +7,10 @@
             "bool_prefers-reduced-motion":null
           },
           "default-apps":{
-            "str_terminal":"",
-            "str_file-manager":"",
-            "str_text-editor":"",
-            "str_web-browser":""
+            "str_terminal":null,
+            "str_file-manager":null,
+            "str_text-editor":null,
+            "str_web-browser":null
           },
           "desktop":{
             "str_wp-path":"res/wallpaper.png",
@@ -20,12 +20,13 @@
             "str_wp-scale":"cover"
           },
           "dock":{
+            "str_dock-win-name":"DOCK",
             "list_taskbar-apps":["test string"],
             "str_dock-height":"40px",
-            "str_start-menu-name":"MENU_START"
+            "str_start-menu-win-name":"MENU_START"
           },
           "user":{
-            "str_profile-image-path":"circle-user.png",
+            "str_profile-image-path":"circle-user.png"
           }
         },
         "scss":{
