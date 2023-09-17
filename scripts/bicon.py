@@ -7,19 +7,24 @@ import tempfile as tmp
 import sys
 import json
 import re
-from pandas.io.json import json_normalize
+from pandas import json_normalize
 
 #################################################################################
 ## format json string to have no whitespace outside of strings.
 def cleanup(JSON_STR):
-  JSON_STR = re.sub(r"\n", "", JSON_STR)
-  JSON_STR = re.sub(r"(?<![\[\"\w\d])\s+", "", JSON_STR)
-  JSON_STR = re.sub(r"\s}", "", JSON_STR)
+  #JSON_STR = re.sub(r"\n", "", JSON_STR)                    ## remove newlines
+  #JSON_STR = re.sub(r"(?<![\[\"\w\d])\s+", "", JSON_STR)    ## remove \ and indents
+  #JSON_STR = re.sub(r"\s}", "", JSON_STR)                   ## remove spaces not in ""
 
-  temp = tmp.NamedTemporaryFile(delete=False,prefix="bingle")
+  temp = tmp.NamedTemporaryFile(prefix="bingle")
   with open(temp.name, 'w') as f:
     f.write(JSON_STR)
-  DICT = json.load(temp)
+  with open(temp.name, 'rt') as f:
+    #print(type(f))
+    #print(f.name)
+    #print(repr(open(f.name, 'rb').read()))
+    DICT = json.load(f)
+  #DICT = json.load(temp)
   return DICT
 
 #################################################################################
@@ -41,10 +46,12 @@ def update(DICT, KEY, VAL):
 #################################################################################
 ## internal function. prints full expanded names of keys in dot notation. try to not call this on its own.
 def walk_keys(OBJ):
-  print("OBJ:" + str(type(OBJ)))
+  #print("OBJ:" + str(type(OBJ)))
   ## make OBJ into a python dict. THIS THING IS DRIVING ME INSANE
-  DICT = json.loads(OBJ)
-  ToC = json_normalize(DICT, sep='.')
+  LIST = json.loads(OBJ)
+  ToC = json_normalize(LIST, sep='.')
+  print(type(ToC))
+  print(repr(ToC))
   return ToC ## return list
 
 #################################################################################
@@ -52,7 +59,8 @@ def walk_keys(OBJ):
 def trace(PATH, LIST):
   DICT = parse(PATH)
   #print(type(DICT))
-  for s in walk_keys(DICT):
+  obj = json.dumps(DICT)
+  for s in walk_keys(obj):
     LIST.append(s)
   return LIST
 #################################################################################
