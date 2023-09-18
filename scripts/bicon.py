@@ -11,7 +11,7 @@ from pandas import json_normalize
 
 #################################################################################
 ## format json string to have no whitespace outside of strings.
-def cleanup(JSON_STR):
+def dict_format(JSON_STR):
   #JSON_STR = re.sub(r"\n", "", JSON_STR)                    ## remove newlines
   #JSON_STR = re.sub(r"(?<![\[\"\w\d])\s+", "", JSON_STR)    ## remove \ and indents
   #JSON_STR = re.sub(r"\s}", "", JSON_STR)                   ## remove spaces not in ""
@@ -43,7 +43,7 @@ def parse(JSON_PATH):
   ## OPEN file at JSON_PATH
   with open(JSON_PATH, 'r') as f:
     json_str = f.read()
-    CONF_DICT = cleanup(json_str)
+    CONF_DICT = dict_format(json_str)
   return CONF_DICT
 
 #################################################################################
