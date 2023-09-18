@@ -48,7 +48,7 @@ tab-add() {
   winTabs="${winDir}/tabs.json"
 
   ## find the window JSON file, use python implementation to populate the tab array.
-  python tab-add.py $winDir "$BINGLE_CONF_DIR/yuck/util/tabTemplate.json" $tabUUID $tabLabl $tabIcon
+  python tab-add.py $winDir "$BINGLE_CONF_DIR/yuck/util/tabTemplate.json" $tabUUID $tabLabl $tabIcon $tabCont
 }
 
 #######################################################################################
@@ -160,9 +160,7 @@ window-close() {
   eww -c $BINGLE_CONF_DIR close $winUUID
 }
 
-
-
 ## MAIN CALL, FOR DEBUG PURPOSES ONLY
 bingle-init
 test_win=$(window-open "testYuck" 100 50 400 300)
-tab-add $test_win $(uuidgen) "testYuck" "testing" "process-stop-symbolic"
+tab-add $test_win $(uuidgen) '{"key":"value"}' "testing" "process-stop-symbolic" '{"tab_data_key":"tab_data_val"}'

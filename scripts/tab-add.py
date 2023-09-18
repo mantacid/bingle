@@ -9,7 +9,9 @@ tabBasePATH = sys.argv[2] ## path to the json template (path)
 tabUUID = sys.argv[3]
 tabLabl = sys.argv[4]
 tabIcon = sys.argv[5]
-#tabCont = sys.argv[6] ## STILL NOT WORKING FOR SOME REASON
+tabCont = sys.argv[6] ## STILL NOT WORKING FOR SOME REASON
+
+#print(tabCont)
 
 ######################################################################################
 ## PROCESSING THE DATA ##
@@ -46,10 +48,15 @@ tabDICT['currentWindow'] = winPATH
 winDICT['tabs'] = []
 tabLIST = winDICT['tabs']
 tabLIST.append(tabDICT)
-print(winDICT)
+#print(winDICT)
 
 ## Write the new data to the tab json file
 with open(winTabsPATH, 'wt') as tabs:
   tabs.write(json.dumps(winDICT))
-  ## call another function to write the application json data to the tabs.
-  ## use tabby file for this.
+
+  ## convert tabCont into raw JSON string
+  print(tabCont)
+  print(repr(tabCont))
+  appJSON = json.loads(tabCont)
+
+tabby.app_load(winTabsPATH, tabUUID, appJSON)
