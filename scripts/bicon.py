@@ -15,8 +15,7 @@ def cleanup(JSON_STR):
   #JSON_STR = re.sub(r"\n", "", JSON_STR)                    ## remove newlines
   #JSON_STR = re.sub(r"(?<![\[\"\w\d])\s+", "", JSON_STR)    ## remove \ and indents
   #JSON_STR = re.sub(r"\s}", "", JSON_STR)                   ## remove spaces not in ""
-
-  temp = tmp.NamedTemporaryFile(prefix="bingle")
+  temp = tmp.NamedTemporaryFile(prefix="bicon")
   with open(temp.name, 'w') as f:
     f.write(JSON_STR)
   with open(temp.name, 'rt') as f:
@@ -26,6 +25,16 @@ def cleanup(JSON_STR):
     DICT = json.load(f)
   #DICT = json.load(temp)
   return DICT
+
+#################################################################################
+## format json string for use in yuck/ temp config.
+def yuck_format(JSON_STR):
+  ## format the string
+  JSON_STR = re.sub(r"\n", "", JSON_STR)                    ## remove newlines
+  JSON_STR = re.sub(r"(?<![\[\"\w\d])\s+", "", JSON_STR)    ## remove \ and indents
+  JSON_STR = re.sub(r"\s}", "", JSON_STR)                   ## remove spaces not in ""
+
+  return JSON_STR
 
 #################################################################################
 ## parses Pretty json file into python dict for easy manipulation. This means we dont get live config updates, but it also means we aren't writing to the disk as much.
@@ -52,10 +61,10 @@ def walk_keys(OBJ):
   ToC = json_normalize(LIST, sep='.')
   print(type(ToC))
   print(repr(ToC))
-  return ToC ## return list
+  return ToC ## return DataFrame. format this later to give to yuck to guide iteration
 
 #################################################################################
-## Print a list of all expanded keys in file at PATH using dot notation, add output to list defined in LIST
+## Print a list of all expanded keys in file at PATH using dot notation, add output to list defined in LIST. This should be called by the yuck to get a list of keys to iterate through, It should NOT be used to initialize the temp config!!!!
 def trace(PATH, LIST):
   DICT = parse(PATH)
   #print(type(DICT))
@@ -75,11 +84,11 @@ def init(PATH):
 
 #################################################################################
 ## DEBUG CALLS
-A = ['']
-X = "/home/bingle/github/bingle/conf/main.json"
+#A = ['']
+#X = "/home/bingle/github/bingle/conf/main.json"
 #print(X)
-Y = parse(X)
+#Y = parse(X)
 #print(Y)
-Z = trace(X, A)
+#Z = trace(X, A)
 #print(Z)
 #print(A)
