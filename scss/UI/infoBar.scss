@@ -1,0 +1,19 @@
+*{all: unset;}
+
+.infoItem {
+  * {
+    all: unset;
+    background-color: $bg_main;
+    color: $txt;
+  }
+  background-color: $bg_main;
+}
+
+.dock.horiz:first-child {
+  margin-right: 2px;
+}
+
+.dock.horiz:last-child {
+  margin-left: 2px;
+}
+

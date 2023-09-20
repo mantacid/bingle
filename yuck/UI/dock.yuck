@@ -1,3 +1,4 @@
+(defvar infoBar_focusIndex 0)
 
 (defwidget btnSearch [showState NAMEshowState btnHeight]
   (box :class "holder"
@@ -10,7 +11,6 @@
        :hexpand true
     (eventbox :class "dock-item ${showState ? 'search_toggled' : 'search_dormant'}"
               :onclick {showState ? "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${NAMEshowState}=false" : "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update ${NAMEshowState}=true"}
-              ;:onhoverlost "${EWW_EXECUTABLE} -c ${EWW_CONFIG_DIR} update isSearchExpanded=false"
               :width btnHeight
               :height btnHeight
               :hexpand true
@@ -30,7 +30,7 @@
                   :width: "300px"
                   :active true
           (input :class "search"
-                 :value ""
+                 :value "Search"
                  :width "300px"
           )
         )
@@ -97,20 +97,6 @@
   )
 )
 
-(defwidget infoBar []
-  (box :class "dock invis"
-       :width "20%"
-       :orientation "h"
-       :space-evenly true
-       :vexpand true
-       :hexpand true
-       :halign "fill"
-    (eventbox
-      (children) ;;will accept tabs later
-    )
-  )
-)
-
 (defwidget sysTray []
   (box :class "dock"
        :width: "20%"
@@ -144,7 +130,7 @@
                     :NAMEshowC NAMEstartShowState
                     :btnHeight DOCK_H
       )
-      (infoBar)
+      (infoBar :json json_test :jsonNAME "json_test" :focus 1 :direction "down")
       (sysTray
         (batteryIcon :menuState showBatteryMenu :menuStateName "showBatteryMenu")
       )

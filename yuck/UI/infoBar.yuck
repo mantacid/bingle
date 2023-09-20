@@ -1,0 +1,52 @@
+(defvar json_test `{"tabs":[{"yuck":"(tab :tabLabel 'test' :tabIcon 'emoji-body-symbolic')"},{"yuck":"(button :style 'background-color: red; color: white;' btn2)"}]}`)
+
+(defwidget infoItem [data focus direction]
+  (eventbox :class "dock infoItem"
+            :active true
+            :hexpand true
+            :vexpand false
+            :space-evenly false
+            :halign "fill"
+            :valign "fill"
+            :cursor "pointer"
+          ;;;;;--EVENTS--;;;;;
+          ;; add a section in the json for this.
+            :onclick "${data.events.onclick}"
+            :onrightclick "${data.events.onrightclick}"
+            :onmiddleclick "${data.events.onmiddleclick}"
+
+            :onhover "${data.events.onhover}"
+            :onhoverlost "${data.events.onhoverlost}"
+
+            :dragtype "${data.events.dragtype}"
+            :dragvalue "${data.events.dragvalue}"
+            :ondropped "${data.events.ondropped}"
+
+            :onscroll "" ;;cycle through to next or previous index
+                             ;; i = mod(i,len(list))
+    (revealer :class ""
+              :transition {"left" =~ direction || "right" =~ direction || "up" =~ direction || "down" =~ direction ? "slide${direction}" : "${direction}"}
+              :duration "500ms"
+              :reveal {focus == "${jq(data, 'index(data)')}" ? true : false}
+      (box :class "infoItem"
+           :halign "fill"
+           :valign "fill"
+        (literal :content "${data.yuck}" :style "${data.style}")
+      )
+    )
+  )
+)
+
+(defwidget infoBar [json ?NAMEjson focus direction]
+  (box :class "dock invis ${direction =~ 'left' || direction =~ 'right' ? 'horiz' : 'vert'}"
+       :halign "fill"
+       :valign "fill"
+       :hexpand true
+       :vexpand false
+       :orientation {"up" =~ direction || "down" =~ direction ? "v" : "h"}
+       :space-evenly false
+    (for item in "${json.tabs}"
+      (infoItem :data item :focus focus :direction direction)
+    )
+  )
+)

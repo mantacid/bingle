@@ -41,6 +41,10 @@
   margin-right: unset;
 }
 
+.search {
+  color: $txt;
+}
+
 .search_dormant {
   background-color: $btn_bg;
 }
@@ -56,7 +60,7 @@
 
 .invis {
   background-color: transparent;
-  border: 1px solid red; /*DEBUG PURPOSES*/
+  padding: 0;
 }
 
 .menuOpt.start {

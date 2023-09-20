@@ -5,6 +5,7 @@
 (include "yuck/UI/dialog_Auth.yuck")
 (include "yuck/UI/dock.yuck")
 (include "yuck/UI/icon.yuck")
+(include "yuck/UI/infoBar.yuck")
 (include "yuck/UI/menuStart.yuck")
 (include "yuck/UI/systemControls.yuck")
 (include "yuck/UI/toggleSwitch.yuck")
