@@ -32,7 +32,8 @@
         "scss":{
           "theme":{
             "bool_force-theme":true,
-            "str_theme":"Default"
+            "str_theme":"Default",
+            "str_scheme":"dark"
           }
         }
       }
