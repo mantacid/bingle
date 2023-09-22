@@ -33,7 +33,8 @@
 .user {
   padding: $card_padding;
   background-color: $bg_main;
-  border-radius: $rad_border_avatar $rad_border_avatar $rad_border_avatar $rad_border_avatar ;
+  border-radius: $rad_border_avatar $rad_border_avatar $rad_border_avatar $rad_border_avatar;
+  color: $txt;
 }
 
 .userName {

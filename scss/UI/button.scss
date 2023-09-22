@@ -1,5 +1,8 @@
 
 button {
+  .icon {
+    color: $ico;
+  }
   border-radius: $rad_btn_border_small;
   color: $txt;
   margin-left: 1px;
