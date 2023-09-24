@@ -1,9 +1,19 @@
-(defwidget manilla_view [CWD ?NAME_CWD]
+(defwidget manilla_view [CWD ?NAME_CWD data ?NAME_data]
   (box :class "area view"
        :orientation "v"
        :vexpand true
        :hexpand true
        :halign "fill"
-    "view" ;;replace with for loop iterating over contents of dir and displaying an eventbox for each location
+       :valign "fill"
+    (box :class "options"
+         :orientation "v"
+         :valign "start"
+         :hexpand true
+         :halign "fill"
+      (for item in "${data['${CWD}']}"
+        (file :data item :CWD CWD)
+      )
+    )
+
   )
 )

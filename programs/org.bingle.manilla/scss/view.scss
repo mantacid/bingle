@@ -3,5 +3,41 @@
 .view {
   background-color: $bg_main_dark;
   margin-left: calc($win_padding / 2);
+  padding: 4px;
 
+}
+.file.container {
+  margin: 2px;
+}
+
+.file {
+  .item {
+    @include trans-ease-in-circular;
+    transition-property: background-color;
+    .icon {
+      margin-left: 0px;
+      padding-left: 3px;
+    }
+    label {
+      margin-left: 4px;
+    }
+  }
+  margin: 2px;
+  border-radius: $rad_btn_border_small;
+  padding: 4px;
+}
+
+.file:hover {
+  .item {
+    @include trans-ease-in-circular;
+    transition-property: background-color;
+    background-color: mix($btn_bg_hov, $bg_main_dark, 40%);
+  }
+}
+
+.file:active {
+  .item {
+    @include trans-instant;
+    background-color: mix($btn_bg_act, $bg_main_dark, 40%);
+  }
 }

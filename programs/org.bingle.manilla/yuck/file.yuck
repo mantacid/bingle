@@ -1,0 +1,23 @@
+(defwidget file [data ?view] ;; data accepts a json string, view accepts a string, but defaults to "list".
+  (eventbox :class "file container"
+    (box :class "file item" ;; contains all entry data
+         :hexpand true
+         :halign "fill"
+         :vexpand false
+         :valign "fill"
+         :orientation "h"
+         :space-evenly false
+      (box :halign "start"
+           :valign "center"
+           :space-evenly false
+        (icon :name "checkbox-checked-symbolic")
+        (label :class "name"
+               :text "${data.name}"
+               :limit-width 20
+               :show-trruncated true
+        )
+      )
+
+    )
+  )
+)

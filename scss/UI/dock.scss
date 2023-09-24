@@ -26,7 +26,7 @@
 }
 
 .icon {
-  @include trans-ease-anticipate;
+  @include trans-ease-in-circular;
   transition-property: color;
   padding: 3px;
   margin: 0px;
@@ -50,7 +50,7 @@
 }
 
 .search-dormant:hover {
-  @include trans-ease-anticipate;
+  @include trans-ease-in-circular;
   background-color: $btn_bg_hov;
 }
 
@@ -67,12 +67,12 @@
   .icon {
     background-color: unset;
   }
-  @include trans-ease-anticipate;
+  @include trans-ease-in-circular;
   background-color: $btn_bg;
 }
 
 .menuOpt.start:hover {
-  @include trans-ease-anticipate;
+  @include trans-ease-in-circular;
   background-color: $btn_bg_hov;
 }
 

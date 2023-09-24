@@ -3,6 +3,8 @@
   background-color: $bg_main_dark;
 }
 .entry {
+  @include trans-ease-in-circular;
+  transition-property: background-color;
   background-color: transparent;
   padding: 3px;
 }
@@ -38,10 +40,17 @@
   border-radius: $rad_btn_border_small;
 }
 
+.entry {
+  .place {
+    @include trans-ease-in-circular;
+    transition-property: background-color;
+  }
+}
+
 .entry:hover {
   .place{
     @extend button;
-    @include trans-ease-anticipate;
+    @include trans-ease-in-circular;
     transition-property: background-color;
     background-color: $btn_bg_hov;
     padding: 4px;

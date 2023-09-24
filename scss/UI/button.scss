@@ -1,5 +1,6 @@
 
 button {
+  @include trans-ease-in-circular;
   .icon {
     color: $ico;
   }
@@ -12,7 +13,7 @@ button {
 }
 
 button:hover {
-  @include trans-ease-anticipate;
+  @include trans-ease-in-circular;
   background-color: unset;
   background-color: $btn_bg_hov;
   transition-property: background-color;
@@ -28,7 +29,7 @@ button:active {
 }
 
 .close:hover {
-  @include trans-ease-anticipate;
+  @include trans-ease-in-circular;
   background-color: unset;
   background-color: $col_close_hov;
   transition-property: background-color;

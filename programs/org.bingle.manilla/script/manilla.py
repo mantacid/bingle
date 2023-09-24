@@ -80,13 +80,18 @@ def pack(data, path):
       mimetype = re.sub(r'\n', "", output)
       ## write mimetype to dictionary
       data_dict["mimetype"] = mimetype
+      ## create section for gtk icon name to use in other function.
+      data_dict["icon"] = ""
       ## loop over the rest of the data provided by ls
     for j in range(len(data_TUPLE)):
       key = key_LIST[j]
       data_dict[key] = data_TUPLE[j]
     ## append the dict to the attr_LIST
     attr_LIST.append(data_dict)
+  ## place the LIST into json
+  attr_JSON = {}
+  attr_JSON[str(path)] = attr_LIST
   ## dump the JSON string
-  return_JSON = json.dumps(attr_LIST, separators=(",", ":"))
-  #print(return_JSON)
+  return_JSON = json.dumps(attr_JSON, separators=(",", ":"))
+  print(return_JSON)
   return return_JSON

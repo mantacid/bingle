@@ -38,7 +38,7 @@
 }
 
 .tab:hover {
-  @include trans-ease-anticipate;
+  @include trans-ease-in-circular;
   background-color: $tab_bg_hov;
   transition-property: background-color;
 }

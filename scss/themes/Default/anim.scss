@@ -1,3 +1,8 @@
+@mixin trans-ease-in-circular {
+  transition-timing-function: cubic-bezier(0,.37,.2,1);
+  transition-duration: 0.15s;
+}
+
 @mixin trans-ease-anticipate {
   transition-timing-function: cubic-bezier(0.52,0.13,0.42,1.0);
   transition-duration: 0.2s;

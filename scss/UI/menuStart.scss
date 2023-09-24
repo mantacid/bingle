@@ -59,7 +59,7 @@
 
 
   :hover {
-    @include trans-ease-anticipate;
+    @include trans-ease-in-circular;
     background-color: unset;
     background-color: $btn_bg_hov;
     transition-property: background-color;

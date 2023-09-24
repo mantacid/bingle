@@ -1,6 +1,10 @@
 ;; DONT define sort modes and UI options here unless you want them to be global across all instances of the application.
 ;; Data specific to app instances (the current working directory of a file manager, for example) should be defined in the json content of the tab associated with the instance.
 
+;; testing data for the file view window
+(defvar DAT `{"/home/bingle/github/bingle":[{"mimetype":"text/plain","type":"-","owner-perm":"rw-","group-perm":"r--","other-perm":"r--","item-count":"1","ownerU":"bingle","ownerG":"bingle","size":"35K","year":"2023","month":"09","day":"09","time":"13:55","name":"LICENSE"},{"mimetype":"inode/directory","type":"d","owner-perm":"rwx","group-perm":"r-x","other-perm":"r-x","item-count":"2","ownerU":"bingle","ownerG":"bingle","size":"4.0K","year":"2023","month":"09","day":"22","time":"16:32","name":"conf"},{"mimetype":"inode/directory","type":"d","owner-perm":"rwx","group-perm":"r-x","other-perm":"r-x","item-count":"3","ownerU":"bingle","ownerG":"bingle","size":"4.0K","year":"2023","month":"09","day":"08","time":"13:33","name":"programs"},{"mimetype":"inode/directory","type":"d","owner-perm":"rwx","group-perm":"r-x","other-perm":"r-x","item-count":"2","ownerU":"bingle","ownerG":"bingle","size":"4.0K","year":"2023","month":"09","day":"22","time":"17:21","name":"res"},{"mimetype":"inode/directory","type":"d","owner-perm":"rwx","group-perm":"r-x","other-perm":"r-x","item-count":"3","ownerU":"bingle","ownerG":"bingle","size":"4.0K","year":"2023","month":"09","day":"17","time":"18:22","name":"scripts"},{"mimetype":"inode/directory","type":"d","owner-perm":"rwx","group-perm":"r-x","other-perm":"r-x","item-count":"5","ownerU":"bingle","ownerG":"bingle","size":"4.0K","year":"2023","month":"08","day":"23","time":"16:40","name":"scss"},{"mimetype":"inode/directory","type":"d","owner-perm":"rwx","group-perm":"r-x","other-perm":"r-x","item-count":"4","ownerU":"bingle","ownerG":"bingle","size":"4.0K","year":"2023","month":"09","day":"08","time":"12:42","name":"yuck"},{"mimetype":"text/plain","type":"-","owner-perm":"rw-","group-perm":"r--","other-perm":"r--","item-count":"1","ownerU":"bingle","ownerG":"bingle","size":"2.9K","year":"2023","month":"09","day":"24","time":"13:33","name":"README.md"},{"mimetype":"text/x-lisp","type":"-","owner-perm":"rw-","group-perm":"---","other-perm":"---","item-count":"1","ownerU":"bingle","ownerG":"bingle","size":"1.6K","year":"2023","month":"09","day":"15","time":"10:19","name":"eww.yuck"},{"mimetype":"image/png","type":"-","owner-perm":"rw-","group-perm":"r--","other-perm":"r--","item-count":"1","ownerU":"bingle","ownerG":"bingle","size":"747","year":"2023","month":"08","day":"27","time":"17:28","name":"circle-user.png"},{"mimetype":"text/plain","type":"-","owner-perm":"rw-","group-perm":"r--","other-perm":"r--","item-count":"1","ownerU":"bingle","ownerG":"bingle","size":"439","year":"2023","month":"09","day":"09","time":"13:55","name":"CONTRIBUTING.md"},{"mimetype":"text/plain","type":"-","owner-perm":"rw-","group-perm":"---","other-perm":"---","item-count":"1","ownerU":"bingle","ownerG":"bingle","size":"164","year":"2023","month":"09","day":"08","time":"12:45","name":"eww.scss"}]}
+`)
+
 ;;originally planned to allow the manilla_main widget to call children so that elements would be more easily configurable. However, I couldn't pass arguments to them. I'll still try to do that for as many elements of the interface I can.
 (defwidget manilla_main [CWD ?NAME_CWD]
   (box :class "manilla"
@@ -27,7 +31,7 @@
          :hexpand false
          :vexpand true
       (children :nth 3)      ;; places
-      (manilla_view :CWD "${CWD}" :NAME_CWD NAME_CWD)      ;; view
+      (manilla_view :CWD "${CWD}" :NAME_CWD NAME_CWD :data DAT)      ;; view
     )
     (children :nth 4)        ;; bottom
   )
@@ -42,7 +46,7 @@
                                             :height "45%"
                                             :anchor "top left"
                                   )
-  (manilla_main :CWD "/home/bingle"
+  (manilla_main :CWD "/home/bingle/github/bingle"
     (box "nav")
     (box "breadcrumbs")
     (box "ribbon menu")
