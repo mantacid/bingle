@@ -1,9 +1,6 @@
 ;;IMPORTANT: INCLUDE ANY EXTERNAL YUCK HERE!!!!
 (defvar isStartMenuShown false)
 
-;; DEFINE A LISTENER TO WATCH FOR CHANGES IN THE CONFIG FOLDER
-(deflisten CONF_WATCH :initial "" `tail -F /tmp/confWatch.txt`)
-
 ;; INCLUDE THE UUID OF THE LAST FOCUSED TAB
 (include "yuck/util/TABUUID.yuck")
 
@@ -40,7 +37,7 @@
 
     ;(appIcon :icon "application-x-executable" :command "" :description "test application" :name "test")
     ;(toggleSwitch :stateVar toggletest :size "15px" :inactive true)
-    (label :text CONF_WATCH)
+    (label :text "${CONF_MAIN['org']}")
     ;(manilla_main :CWD testDir :NAME_CWD "testDir"
     ;    (nav :CWD CWD :NAME_CWD NAME_CWD)
     ;)

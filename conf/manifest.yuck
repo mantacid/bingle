@@ -1,8 +1,10 @@
 ;; Each of these include statements will have its own settings page.
+;; most of these will likely get depreciated as bingle moves to using a json-based configuration.
 (include "conf/accessibility.yuck")
 (include "conf/app-layouts.yuck")
 (include "conf/bingleWindow.yuck")
 (include "conf/desktop.yuck")
 (include "conf/dock.yuck")
 (include "conf/look.yuck")
+(include "conf/main.yuck")
 (include "conf/system.yuck")

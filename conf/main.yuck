@@ -1,0 +1,1 @@
+(defvar CONF_MAIN '') ;; alter this using bicon to set the config upon initializing.

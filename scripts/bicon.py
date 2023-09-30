@@ -29,6 +29,7 @@ def dict_format(JSON_STR):
 
 ################################################################################
 ## format json string for use in yuck/ temp config.
+## where tf do i use this function?
 def yuck_format(JSON_STR):
   ## format the string
   JSON_STR = re.sub(r"\n", "", JSON_STR)                    ## remove newlines
@@ -76,7 +77,7 @@ def trace(PATH, LIST):
 ################################################################################
 ## init the config at PATH upon first start, opening a bingle dialog to accept the user input.
 
-def init(PATH):
+def conf_init(PATH):
   ## parse config at PATH
   CONF_DICT = parse(PATH)
 
@@ -84,10 +85,11 @@ def init(PATH):
   ## we don't know how many nests the json will have (most likely its five, but only if the settings GUI will prohibit user inputs that are dicts. Plus, it would be a good idea for me to future-proof this now.), so use recursion to get all the keys.
 
 ################################################################################
-## load(): loads the config into a temp file
+## load_to_temp(): loads the config into a temp file
 ## takes the path to the config as the argument
 ## returns the temp file name
-def load(path):
+## THIS FUNCTION MAY BE DEPRECIATED IN THE FUTURE
+def load_to_temp(path):
   DICT = parse(path)
   FORM_STR = json.dumps(DICT, separators=(',',':'))
   ## define the command string
@@ -96,6 +98,24 @@ def load(path):
   with Popen(CMD_STR, stdout=PIPE, stderr=None, shell=True, executable='/bin/bash') as process:
     output = process.communicate()[0].decode("utf-8")
   return output
+
+################################################################################
+## load_to_yuck(): directly update the yuck variable storing the config.
+## takes the name of the variable (in case another application uses this function to update their config), the new formatted config json STRING, and the eww config. eww config is set to its default location by default
+## returns nothing, may be changed to return some status message or something idk man I'm tired.
+## ASSUMES THAT THE EWW EXECUTABLE HAS BEEN SYMLINKED TO /usr/local/bin/eww, and that the repo has been symlinked to $HOME/.config/eww
+def load_to_yuck(CONF_LOC, YUCK_VAR_NAME='CONF_MAIN', EWW_CONF_DIR_PATH='/$HOME/.config/eww'):
+  #CONF_JSON_STR = json.dumps(DATA_DICT, separators=(',',':'))
+  #print(CONF_JSON_STR)
+  DATA_DICT = parse(CONF_LOC)
+  DATA_STR = json.dumps(DATA_DICT, separators=(',', ':'))
+  ## structure the command
+  CMD = r"eww update -c {ewwConf} {var}={dat}"
+  CMD_STR = CMD.format(ewwConf = EWW_CONF_DIR_PATH, var = YUCK_VAR_NAME, dat = DATA_STR)
+  with Popen(CMD_STR, stdout=PIPE, stderr=None, shell=True, executable='/bin/bash') as process:
+    output = process.communicate()[0].decode("utf-8")
+  #return output
+
 ################################################################################
 ## DEBUG CALLS
 #A = ['']

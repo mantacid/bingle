@@ -21,7 +21,7 @@
           },
           "dock":{
             "str_dock-win-name":"DOCK",
-            "list_taskbar-apps":["test string"],
+            "list_taskbar-apps":["test_string"],
             "str_dock-height":"40px",
             "str_start-menu-win-name":"MENU_START"
           },
