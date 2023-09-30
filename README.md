@@ -22,6 +22,7 @@ Documentation will be consolidated in the near future.
 As of this writing, there are no plans to create a script that will install all the dependencies. This task is left to the user, but guidance will be provided if necessary.
 - [xdotool](https://github.com/jordansissel/xdotool) (gets mouse cursor & screen information on systems that use X11.)
 - imagemagick (for wallpaper blurring)
+- [fswatch 1.17.1](https://github.com/emcrisostomo/fswatch) (tracks config file changes)
 
 # Repository Structure
 Each directory will have a README file explaining its purpose and contents.
@@ -33,7 +34,7 @@ Contains files used to define the behavior of the system. Work is being done to 
 contains various native BINGLE applications. WIP.
 
 ## `res/`
-Contains assets used by the system, such as the wallpaper, BINGLE icon, and others.
+Contains assets used by the system, such as the wallpapers, the BINGLE icon, and others.
 
 ## `scripts/`
 Contains helpful scripts and utilities.

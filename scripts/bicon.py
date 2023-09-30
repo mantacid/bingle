@@ -8,8 +8,9 @@ import sys
 import json
 import re
 from pandas import json_normalize
+from subprocess import PIPE, Popen
 
-#################################################################################
+################################################################################
 ## format json string to have no whitespace outside of strings.
 def dict_format(JSON_STR):
   #JSON_STR = re.sub(r"\n", "", JSON_STR)                    ## remove newlines
@@ -26,7 +27,7 @@ def dict_format(JSON_STR):
   #DICT = json.load(temp)
   return DICT
 
-#################################################################################
+################################################################################
 ## format json string for use in yuck/ temp config.
 def yuck_format(JSON_STR):
   ## format the string
@@ -36,7 +37,7 @@ def yuck_format(JSON_STR):
 
   return JSON_STR
 
-#################################################################################
+################################################################################
 ## parses Pretty json file into python dict for easy manipulation. This means we dont get live config updates, but it also means we aren't writing to the disk as much.
 def parse(JSON_PATH):
 
@@ -46,13 +47,13 @@ def parse(JSON_PATH):
     CONF_DICT = dict_format(json_str)
   return CONF_DICT
 
-#################################################################################
+################################################################################
 ## update the value of KEY in DICT to VAL. returns updated DICT
 def update(DICT, KEY, VAL):
   DICT.KEY = VAL
   return DICT
 
-#################################################################################
+################################################################################
 ## internal function. prints full expanded names of keys in dot notation. try to not call this on its own.
 def walk_keys(OBJ):
   #print("OBJ:" + str(type(OBJ)))
@@ -63,7 +64,7 @@ def walk_keys(OBJ):
   print(repr(ToC))
   return ToC ## return DataFrame. format this later to give to yuck to guide iteration
 
-#################################################################################
+################################################################################
 ## Print a list of all expanded keys in file at PATH using dot notation, add output to list defined in LIST. This should be called by the yuck to get a list of keys to iterate through, It should NOT be used to initialize the temp config!!!!
 def trace(PATH, LIST):
   DICT = parse(PATH)
@@ -72,7 +73,7 @@ def trace(PATH, LIST):
   for s in walk_keys(obj):
     LIST.append(s)
   return LIST
-#################################################################################
+################################################################################
 ## init the config at PATH upon first start, opening a bingle dialog to accept the user input.
 
 def init(PATH):
@@ -82,7 +83,20 @@ def init(PATH):
   ## loop through all keys, prompt for input of type defined in key name.
   ## we don't know how many nests the json will have (most likely its five, but only if the settings GUI will prohibit user inputs that are dicts. Plus, it would be a good idea for me to future-proof this now.), so use recursion to get all the keys.
 
-#################################################################################
+################################################################################
+## load(): loads the config into a temp file
+## takes the path to the config as the argument
+## returns the temp file name
+def load(path):
+  DICT = parse(path)
+  FORM_STR = json.dumps(DICT, separators=(',',':'))
+  ## define the command string
+  CMD = r"file='/tmp/bingleConf.json'; echo '{S}' >> $file; echo $file"
+  CMD_STR = CMD.format(S = FORM_STR)
+  with Popen(CMD_STR, stdout=PIPE, stderr=None, shell=True, executable='/bin/bash') as process:
+    output = process.communicate()[0].decode("utf-8")
+  return output
+################################################################################
 ## DEBUG CALLS
 #A = ['']
 #X = "/home/bingle/github/bingle/conf/main.json"
