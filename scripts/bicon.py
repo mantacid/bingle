@@ -27,16 +27,16 @@ def dict_format(JSON_STR):
   #DICT = json.load(temp)
   return DICT
 
-################################################################################
-## format json string for use in yuck/ temp config.
-## where tf do i use this function?
-def yuck_format(JSON_STR):
-  ## format the string
-  JSON_STR = re.sub(r"\n", "", JSON_STR)                    ## remove newlines
-  JSON_STR = re.sub(r"(?<![\[\"\w\d])\s+", "", JSON_STR)    ## remove \ and indents
-  JSON_STR = re.sub(r"\s}", "", JSON_STR)                   ## remove spaces not in ""
-
-  return JSON_STR
+# ################################################################################
+# ## format json string for use in yuck/ temp config.
+# ## where tf do i use this function?
+# def yuck_format(JSON_STR):
+#   ## format the string
+#   JSON_STR = re.sub(r"\n", "", JSON_STR)                    ## remove newlines
+#   JSON_STR = re.sub(r"(?<![\[\"\w\d])\s+", "", JSON_STR)    ## remove \ and indents
+#   JSON_STR = re.sub(r"\s}", "", JSON_STR)                   ## remove spaces not in ""
+#
+#   return JSON_STR
 
 ################################################################################
 ## parses Pretty json file into python dict for easy manipulation. This means we dont get live config updates, but it also means we aren't writing to the disk as much.
@@ -128,7 +128,7 @@ def load_to_yuck(CONF_LOC, YUCK_VAR_NAME='CONF_MAIN', EWW_CONF_DIR_PATH='/$HOME/
 #print(A)
 ################################################################################
 ## MAIN CALLS ##
-CONF_PATH = sys.argv[1]
-CONF_DICT = parse(str(CONF_PATH))
-JSON_STR = json.dumps(CONF_DICT, separators=(',',':'))
-print(JSON_STR)
+# CONF_PATH = sys.argv[1]
+# CONF_DICT = parse(str(CONF_PATH))
+# JSON_STR = json.dumps(CONF_DICT, separators=(',',':'))
+# print(JSON_STR)
