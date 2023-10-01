@@ -10,6 +10,7 @@ watch_changes() {
   ## prevent the file from growing too large?
   ## WIP ##
   ## output the name of the tempfile so that the yuck can create a listener for it
+  ## the yuck listener will call this script.
   echo $TEMP_FILE
 }
 ####################################################################################
