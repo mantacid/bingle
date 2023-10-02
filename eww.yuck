@@ -17,7 +17,7 @@
 ;; INCLUDE PROGRAM MANIFEST
 (include "programs/manifest.yuck")
 
-(deflisten confWatch :initial "fuck" `tail -f /tmp/confWatch`) ;; i initially set the initial value to 'fuck' out of frustration. I dont know why that fixed the listener. maybe it has something to do with changing the initial value during the session. If that is the case then I have an awful idea.
+(deflisten confWatch :initial "fuck" `tail -f /tmp/confWatch`) ;; FILE NEEDS TO BE SAVED TO LOAD THE VARIABLE PROPERLY???? AS IN, IT NEEDS TO BE SAVED AFTER INITIALIZATION.
 
 
 (defwindow tester :geometry (geometry :x "50%"

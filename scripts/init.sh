@@ -28,8 +28,9 @@ eww daemon
 eww open DESKTOP
 eww open DOCK
 eww open tester
-eww reload
-bash confWatch.sh
+bash confWatch.sh &
+eww reload ## RELOAD IN DIFFERENT PROCESS.
+
 
 ## FIX for config refusing to load dupon startup: reload eww
 

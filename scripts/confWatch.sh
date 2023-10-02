@@ -51,7 +51,7 @@ trigger_update() {
       lastmtime=$mtime
       __RUN_CMD__ "$CONF_PATH" "$F_LEN"
     fi
-    sleep 1
+    sleep 0.5
   done
 }
 
