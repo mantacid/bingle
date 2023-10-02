@@ -27,7 +27,7 @@
 ## ARGS: path to config
 __RUN_CMD__() {
   ## output the changes when they occur.
-  DATA=$(python confLoader.py $1)
+  DATA=$(python bicon.py $1)
   echo $DATA >> /tmp/confWatch
   trap "rm -f /tmp/confWatch;exit" 0 2
 }

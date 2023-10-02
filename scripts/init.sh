@@ -9,12 +9,11 @@
 
 ## START EWW DAEMON
 eww daemon
+
 ## init the configs with the values they need (WIP)
 
 ## hard-coded to only load the main config, at least for now.
 ## this only seems to be loading the very last key in the dictionary into the yuck var
-main_conf_loc="$HOME/.config/eww/conf/main.json"
-python -c "import bicon; bicon.load_to_yuck('"$main_conf_loc"')"
 
 
 ## OPEN RELEVANT WIDGETS ONCE CONFIGS ARE LOADED, TO PREVENT FLICKERING/BREAKAGE
@@ -29,6 +28,8 @@ python -c "import bicon; bicon.load_to_yuck('"$main_conf_loc"')"
 eww open DESKTOP
 eww open DOCK
 eww open tester
-## can eww vars be updated if the window they're referenced in isnt loaded yet?
-## SPACES INSIDE STRINGS ARE NOT ESCAPED
-eww update CONF_DICT=$NEW_JSON_STR
+eww reload
+bash confWatch.sh
+
+## FIX for config refusing to load dupon startup: reload eww
+

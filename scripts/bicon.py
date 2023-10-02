@@ -128,7 +128,7 @@ def load_to_yuck(CONF_LOC, YUCK_VAR_NAME='CONF_MAIN', EWW_CONF_DIR_PATH='/$HOME/
 #print(A)
 ################################################################################
 ## MAIN CALLS ##
-# CONF_PATH = sys.argv[1]
-# CONF_DICT = parse(str(CONF_PATH))
-# JSON_STR = json.dumps(CONF_DICT, separators=(',',':'))
-# print(JSON_STR)
+CONF_PATH = sys.argv[1]
+CONF_DICT = parse(str(CONF_PATH))
+JSON_STR = json.dumps(CONF_DICT, separators=(',',':'))
+print(JSON_STR)

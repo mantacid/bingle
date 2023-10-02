@@ -17,7 +17,7 @@
 ;; INCLUDE PROGRAM MANIFEST
 (include "programs/manifest.yuck")
 
-(deflisten confWatch :initial "NONE" `tail -f /tmp/confWatch`)
+(deflisten confWatch :initial "fuck" `tail -f /tmp/confWatch`) ;; i initially set the initial value to 'fuck' out of frustration. I dont know why that fixed the listener. maybe it has something to do with changing the initial value during the session. If that is the case then I have an awful idea.
 
 
 (defwindow tester :geometry (geometry :x "50%"
