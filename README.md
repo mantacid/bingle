@@ -1,4 +1,6 @@
 # BINGLE
+> NOTE: I am currently in the process of redoing the ENTIRE backend in lisp, which would allow for the dynamic generation of yuck, easy tab dragging, and less of a relianceon the `/tmp` directory. I will update the documentation to reflect these changes when they are made.
+
 BINGLE (Badly INtegrated Graphical Linux Environment) is less of a legitimate desktop environment and more of an experiment. It is written to utilize [Elkowar's Wacky Widgets](https://github.com/elkowar/eww), and is integrated with the system through a bunch of janky scripts.
 
 It takes a unique approach to its UI, taking inspiration from the [AvdanOS concept video](https://www.youtube.com/watch?v=tXFEiw1aJTw), as well as from the HaikuOS window manager, with a few of my own twists:
